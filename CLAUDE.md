@@ -38,7 +38,7 @@ Material/           # Quelldokumente (nicht veröffentlicht)
 - Profil: Mobile Payment & Technology Spezialist
 - Werdegang: Mastercard Advisors, Freiberuflich, CSC, IT-Dozent
 - Kompetenzen: Mobile Payment, Mobile Technology, Quality Assurance
-- Kontakt: E-Mail, LinkedIn
+- Kontakt: E-Mail
 
 ## Rechtliches
 - Impressum mit Anschrift (Dorfstr. 30a, 17328 Penkun)
