@@ -3,6 +3,9 @@
 ## Projektübersicht
 Persönliche Bewerbungs-Homepage für Michael Kinder, gehostet auf GitHub Pages.
 
+## Daten
+Die Daten für die Webseite befinden sich im Unterordner _Dokumente.
+
 ## Struktur
 ```
 docs/               # GitHub Pages Verzeichnis
