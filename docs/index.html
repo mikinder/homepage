@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Kinder - Mobile Payment Spezialist</title>
+    <meta name="description" content="Michael Kinder - Freiberuflicher Spezialist für Mobile Payment & Technology. Experte für Apple Pay, Google Pay und digitale Wallets.">
+    <meta name="author" content="Michael Kinder">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --bg-color: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-color);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-color) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--bg-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-left: 12px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            gap: 20px;
+        }
+
+        .highlight-card {
+            background: var(--bg-color);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .highlight-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .highlight-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid var(--bg-color);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .timeline-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .skill-card {
+            background: var(--bg-color);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .skill-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: var(--shadow);
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-link-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-link-text strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .contact-link-text span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .contact-languages {
+            margin-top: 40px;
+            padding: 24px;
+            background: var(--bg-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-languages h4 {
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .language-tags {
+            display: flex;
+            gap: 12px;
+        }
+
+        .language-tag {
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-brand">Michael Kinder</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">Profil</a></li>
+                <li><a href="#experience">Werdegang</a></li>
+                <li><a href="#skills">Kompetenzen</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Michael Kinder</h1>
+                    <p class="tagline">Mobile Payment & Technology Spezialist</p>
+                    <p>
+                        Ich unterstütze Kunden bei der Einführung von Mobile Payment Lösungen.
+                        Mit meiner Expertise in Apple Pay, Google Pay und digitalen Wallets
+                        begleite ich Unternehmen von der Konzeption bis zur erfolgreichen Implementierung.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn">Kontakt aufnehmen</a>
+                        <a href="#experience" class="btn btn-outline">Mehr erfahren</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="profilbild.jpg" alt="Michael Kinder - Mobile Payment Spezialist">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Über mich</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Als freiberuflicher Spezialist für Mobile Payment & Technology unterstütze
+                        ich Kunden bei der Einführung moderner Zahlungslösungen. Meine Expertise
+                        umfasst die gesamte Wertschöpfungskette - von der strategischen Beratung
+                        über die technische Konzeption bis hin zur Qualitätssicherung.
+                    </p>
+                    <p>
+                        Bei namhaften Kunden habe ich erfolgreich Apple Pay, Android Pay sowie
+                        bankeigene Wallet-Lösungen eingeführt. Mein technischer Hintergrund in
+                        der Softwareentwicklung und meine ISTQB-Zertifizierung ermöglichen mir
+                        eine ganzheitliche Betrachtung komplexer Payment-Projekte.
+                    </p>
+                    <p>
+                        Ich arbeite eng mit Entwicklungsteams zusammen und bringe dabei sowohl
+                        fachliche Expertise im Bereich Tokenisierung und Mobile Payment als auch
+                        praktische Erfahrung in agilen Projektmethoden ein.
+                    </p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <h4>Mehr als 25 Jahre IT-Erfahrung</h4>
+                        <p>Von der Softwareentwicklung über Projektmanagement bis zur spezialisierten Payment-Beratung.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Mastercard Advisors Partner</h4>
+                        <p>Senior Berater im Team für Tokenisierung und Mobile Payment bei führenden Finanzinstituten.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>CSC Technology Award Winner</h4>
+                        <p>Ausgezeichnet für herausragende Leistungen im Bereich Mobile Technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Beruflicher Werdegang</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Juli 2016 - Heute</div>
+                    <h3 class="timeline-title">Senior Berater für Mobile Payment</h3>
+                    <p class="timeline-company">Mastercard Advisors</p>
+                    <p class="timeline-desc">
+                        Unterstützung des Berater-Teams für Issuer zur Einführung von
+                        Tokenisierung sowie von Apple Pay, Android Pay und bankeigenen Wallets.
+                        Beratung führender Finanzinstitute bei der Umsetzung ihrer Mobile Payment Strategien.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Juni 2012 - Heute</div>
+                    <h3 class="timeline-title">Spezialist für Mobile Payment & Technology</h3>
+                    <p class="timeline-company">Freiberuflicher Berater</p>
+                    <p class="timeline-desc">
+                        Beratung, Konzeption, Entwicklung und Qualitätssicherung bei der
+                        Einführung von Apple Pay, Android Pay und bankeigenen Wallets.
+                        Unterstützung von Kunden im gesamten Projektzyklus.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">August 1999 - Mai 2012</div>
+                    <h3 class="timeline-title">Senior Consultant Mobile Technology</h3>
+                    <p class="timeline-company">Computer Sciences Corporation (CSC)</p>
+                    <p class="timeline-desc">
+                        Tätigkeit als Berater, Entwicklungsleiter, Test Manager, Entwickler
+                        und Release Manager in Deutschland und England. ISTQB-Zertifizierung
+                        und Auszeichnung mit dem CSC Technology Award.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Juli 1997 - Dezember 2000</div>
+                    <h3 class="timeline-title">IT-Dozent</h3>
+                    <p class="timeline-company">Freund+Dirks IT-Fachschulungen</p>
+                    <p class="timeline-desc">
+                        Tätigkeit als IT-Dozent für Application Server Technologien und J2EE.
+                        Vermittlung von Fachwissen an IT-Fachkräfte und Entwickler.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Kompetenzen</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">&#128179;</div>
+                    <h4>Mobile Payment</h4>
+                    <p>
+                        Beratung bei der Einführung von Apple Pay, Google Pay und bankeigenen
+                        Wallet-Lösungen. Expertise in Tokenisierung und NFC-Technologien.
+                    </p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">&#128241;</div>
+                    <h4>Mobile Technology</h4>
+                    <p>
+                        Konzeption und Entwicklung von Apps für Android, iOS, Blackberry
+                        und Windows Mobile. Langjährige Erfahrung in der App-Entwicklung.
+                    </p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">&#9989;</div>
+                    <h4>Quality Assurance</h4>
+                    <p>
+                        ISTQB-zertifizierter Tester und Test Manager mit umfangreicher
+                        Erfahrung in agilen Projekten und Scrum-Methodik.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Kontakt</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Sie benötigen Unterstützung bei Ihrem Projekt?</h3>
+                    <p>
+                        Ich freue mich auf Ihre Nachricht. Kontaktieren Sie mich per E-Mail
+                        oder über LinkedIn - ich melde mich zeitnah bei Ihnen.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:michael.kinder@michael-kinder-consulting.de" class="contact-link">
+                            <div class="contact-link-icon">&#9993;</div>
+                            <div class="contact-link-text">
+                                <strong>E-Mail</strong>
+                                <span>michael.kinder@michael-kinder-consulting.de</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/michael-kinder-consulting" target="_blank" rel="noopener" class="contact-link">
+                            <div class="contact-link-icon">in</div>
+                            <div class="contact-link-text">
+                                <strong>LinkedIn</strong>
+                                <span>Mein professionelles Netzwerk</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="contact-languages">
+                        <h4>Sprachkenntnisse</h4>
+                        <div class="language-tags">
+                            <span class="language-tag">Deutsch (Muttersprache)</span>
+                            <span class="language-tag">Englisch (Fließend)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Michael Kinder - Mobile Payment & Technology Spezialist</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
