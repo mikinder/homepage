@@ -43,3 +43,26 @@ Material/           # Quelldokumente (nicht veröffentlicht)
 ## Rechtliches
 - Impressum mit Anschrift (Dorfstr. 30a, 17328 Penkun)
 - Datenschutzerklärung (GitHub Pages Hosting)
+
+## Domain.Konfiguration
+- In Github Profile Settings Domain michael-kinder-consulting.de verifiziert (ACHTUNG: nicht Repository- sondern Profile-Settings)
+- In Repository > Pages die Domain michael-kinder-consulting.de verbunden
+- In GoDaddy: 
+	- mikinder.de: direkt auf https://mikinder.github.io/homepage/index.html umgeleitet
+	- michael-kinder-consulting.de: per CNAME- und A-Params auf gitub pages konfiguriert:
+                                                                                
+  ┌───────┬──────┬────────────────────┐                                                                                     
+  │  Typ  │ Name │        Wert        │                                                                                     
+  ├───────┼──────┼────────────────────┤                                                                                     
+  │ A     │ @    │ 185.199.108.153    │                                                                                     
+  ├───────┼──────┼────────────────────┤                                                                                     
+  │ A     │ @    │ 185.199.109.153    │                                                                                     
+  ├───────┼──────┼────────────────────┤                                                                                     
+  │ A     │ @    │ 185.199.110.153    │                                                                                     
+  ├───────┼──────┼────────────────────┤                                                                                     
+  │ A     │ @    │ 185.199.111.153    │                                                                                     
+  ├───────┼──────┼────────────────────┤                                                                                     
+  │ CNAME │ www  │ mikinder.github.io │                                                                                     
+  └───────┴──────┴────────────────────┘           
+  
+ 
