@@ -12,7 +12,7 @@ docs/               # GitHub Pages Verzeichnis
 ├── profilbild.jpg
 ├── CNAME           # Custom Domain: michael-kinder-consulting.de
 └── .nojekyll
-Material/           # Quelldokumente (nicht veröffentlicht)
+.gitignore          # Ignoriert: Material/, .claude/, prompt.txt, _Dokumente/
 ```
 
 ## Deployment
