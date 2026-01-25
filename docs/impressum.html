@@ -9,7 +9,8 @@
         :root {
             --primary-color: #2563eb;
             --text-color: #1f2937;
-            --text-light: #6b7280;
+            --text-light: #4b5563;  /* WCAG AA konform */
+            --focus-color: #1d4ed8;
             --bg-color: #ffffff;
             --bg-secondary: #f9fafb;
             --border-color: #e5e7eb;
@@ -19,6 +20,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Fokus-Stile für Barrierefreiheit */
+        *:focus-visible {
+            outline: 3px solid var(--focus-color);
+            outline-offset: 2px;
         }
 
         body {

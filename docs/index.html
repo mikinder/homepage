@@ -11,7 +11,8 @@
             --primary-color: #2563eb;
             --primary-dark: #1d4ed8;
             --text-color: #1f2937;
-            --text-light: #6b7280;
+            --text-light: #4b5563;  /* WCAG AA konform */
+            --focus-color: #1d4ed8;
             --bg-color: #ffffff;
             --bg-secondary: #f9fafb;
             --border-color: #e5e7eb;
@@ -27,6 +28,40 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Skip-Link für Tastaturnavigation */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 0 0 8px 8px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Fokus-Stile für Barrierefreiheit */
+        *:focus {
+            outline: 3px solid var(--focus-color);
+            outline-offset: 2px;
+        }
+
+        *:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        *:focus-visible {
+            outline: 3px solid var(--focus-color);
+            outline-offset: 2px;
         }
 
         body {
@@ -91,10 +126,18 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            padding: 5px;
+            padding: 8px;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .nav-toggle:hover {
+            background: var(--bg-secondary);
         }
 
         .nav-toggle span {
+            display: block;
             width: 24px;
             height: 2px;
             background: var(--text-color);
@@ -532,30 +575,36 @@
     </style>
 </head>
 <body>
+    <!-- Skip-Link für Tastaturnavigation -->
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
     <!-- Navigation -->
-    <nav>
+    <nav aria-label="Hauptnavigation">
         <div class="container">
-            <a href="#" class="nav-brand">Michael Kinder</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">Profil</a></li>
-                <li><a href="#experience">Werdegang</a></li>
-                <li><a href="#skills">Kompetenzen</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+            <a href="#" class="nav-brand" aria-label="Startseite">Michael Kinder</a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">Profil</a></li>
+                <li role="none"><a href="#experience" role="menuitem">Werdegang</a></li>
+                <li role="none"><a href="#skills" role="menuitem">Kompetenzen</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Kontakt</a></li>
             </ul>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Hauptinhalt -->
+    <main id="main-content">
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Michael Kinder</h1>
+                    <h1 id="hero-title">Michael Kinder</h1>
                     <p class="tagline">Mobile Payment & Technology Spezialist</p>
                     <p>
                         Ich unterstütze Kunden bei der Einführung von Mobile Payment Lösungen.
@@ -738,8 +787,10 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Michael Kinder | <a href="impressum.html" style="color: rgba(255,255,255,0.8);">Impressum</a> | <a href="datenschutz.html" style="color: rgba(255,255,255,0.8);">Datenschutz</a></p>
         </div>
@@ -751,13 +802,17 @@
         const navLinks = document.getElementById('navLinks');
 
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isExpanded = navLinks.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+            navToggle.setAttribute('aria-label', isExpanded ? 'Menü schließen' : 'Menü öffnen');
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.setAttribute('aria-label', 'Menü öffnen');
             });
         });
 
