@@ -36,8 +36,8 @@ Material/           # Quelldokumente (nicht veröffentlicht)
 
 ## Inhalte
 - Profil: Mobile Payment & Technology Spezialist
-- Werdegang: Mastercard Advisors, Freiberuflich, CSC, IT-Dozent
-- Kompetenzen: Mobile Payment, Mobile Technology, Quality Assurance
+- Werdegang: Mastercard Advisors, Freiberuflich (Michael Kinder Consulting), CSC, IT-Dozent, Studium Informatik (Dipl.-Inf. FH)
+- Kompetenzen: Mobile Payment, Mobile Technology, Quality Assurance, Entwicklung mit KI, Sprachen
 - Kontakt: E-Mail
 
 ## Rechtliches
