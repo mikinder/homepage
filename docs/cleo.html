@@ -742,11 +742,137 @@
     transition: opacity 1.5s ease-out;
   }
   #fireworks.fade { opacity: 0; }
+
+  /* Cartoon plane */
+  #plane-scene {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+    overflow: hidden;
+  }
+  .plane-group {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 20%;
+    left: -640px;
+    animation: plane-fly 8s linear 1.5s forwards, plane-bob 1.4s ease-in-out 1.5s infinite;
+  }
+  @keyframes plane-fly {
+    0%   { left: -640px; }
+    100% { left: calc(100vw + 80px); }
+  }
+  @keyframes plane-bob {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%       { transform: translateY(-22px) rotate(1.5deg); }
+  }
+  .banner-flag {
+    background: #fff8ec;
+    border: 3.5px solid #2b1a4a;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: #2b1a4a;
+    box-shadow: 5px 5px 0 #2b1a4a;
+    white-space: nowrap;
+    animation: flag-flap 0.9s ease-in-out 1.5s infinite;
+    transform-origin: right center;
+  }
+  @keyframes flag-flap {
+    0%, 100% { transform: rotate(-1.5deg) skewY(0deg); }
+    50%       { transform: rotate(2deg) skewY(1.5deg); }
+  }
+  .banner-rope {
+    width: 70px;
+    height: 0;
+    border-top: 3px dashed #2b1a4a;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+  .propeller {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: prop-spin 0.22s linear 1.5s infinite;
+  }
+  @keyframes prop-spin {
+    to { transform: rotate(360deg); }
+  }
 </style>
 </head>
 <body>
 
 <canvas id="fireworks" aria-hidden="true"></canvas>
+
+<div id="plane-scene" aria-hidden="true">
+  <div class="plane-group">
+    <div class="banner-flag">Hi Cleo! 🎉</div>
+    <div class="banner-rope"></div>
+    <!-- Cessna-style cartoon plane, facing right -->
+    <svg width="265" height="132" viewBox="0 0 265 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- HIGH WING on top of fuselage (drawn first, behind fuselage) -->
+      <path d="M 100,48 L 160,48 L 172,28 L 16,36 Z"
+            fill="#a855f7" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Wing I-struts (Cessna signature) -->
+      <line x1="118" y1="48" x2="110" y2="95" stroke="#2b1a4a" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="145" y1="48" x2="145" y2="95" stroke="#2b1a4a" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Tail cone (tapers left to a point) -->
+      <path d="M 86,56 L 86,92 L 14,72 Z"
+            fill="#3aaff5" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Main cabin/fuselage (boxy, Cessna-style) -->
+      <rect x="84" y="48" width="114" height="50" rx="8"
+            fill="#3aaff5" stroke="#2b1a4a" stroke-width="3.5"/>
+
+      <!-- Nose cowling (cylindrical engine housing) -->
+      <path d="M 196,50 L 228,50 Q 242,50 242,73 Q 242,96 228,96 L 196,96 Z"
+            fill="#4ddfaf" stroke="#2b1a4a" stroke-width="3.5" stroke-linejoin="round"/>
+      <line x1="197" y1="73" x2="241" y2="73" stroke="#2b1a4a" stroke-width="1.5" opacity="0.35"/>
+
+      <!-- Large Cessna-style cabin windows -->
+      <rect x="95" y="55" width="38" height="28" rx="5"
+            fill="#fff8ec" stroke="#2b1a4a" stroke-width="2.5"/>
+      <rect x="140" y="55" width="38" height="28" rx="5"
+            fill="#fff8ec" stroke="#2b1a4a" stroke-width="2.5"/>
+      <rect x="99" y="59" width="11" height="9" rx="2" fill="white" opacity="0.6"/>
+      <rect x="144" y="59" width="11" height="9" rx="2" fill="white" opacity="0.6"/>
+
+      <!-- Vertical tail fin (points UP from tail) -->
+      <path d="M 15,70 L 10,34 L 54,58 Z"
+            fill="#ff4fa3" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
+
+      <!-- Horizontal stabilizer (sticks left) -->
+      <path d="M 18,72 L 2,60 L 6,82 L 18,80 Z"
+            fill="#ffd447" stroke="#2b1a4a" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Fixed tricycle landing gear -->
+      <line x1="112" y1="97" x2="106" y2="120" stroke="#2b1a4a" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="104" cy="123" rx="11" ry="6" fill="#2b1a4a"/>
+      <ellipse cx="104" cy="123" rx="9" ry="4.5" fill="#555"/>
+      <line x1="148" y1="97" x2="154" y2="120" stroke="#2b1a4a" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="156" cy="123" rx="11" ry="6" fill="#2b1a4a"/>
+      <ellipse cx="156" cy="123" rx="9" ry="4.5" fill="#555"/>
+      <line x1="106" y1="120" x2="154" y2="120" stroke="#2b1a4a" stroke-width="2" stroke-linecap="round"/>
+      <!-- Nose gear -->
+      <line x1="205" y1="95" x2="204" y2="116" stroke="#2b1a4a" stroke-width="3.5" stroke-linecap="round"/>
+      <ellipse cx="203" cy="119" rx="9" ry="5" fill="#2b1a4a"/>
+      <ellipse cx="203" cy="119" rx="7" ry="4" fill="#555"/>
+
+      <!-- Spinning propeller -->
+      <g class="propeller">
+        <ellipse cx="242" cy="59" rx="4.5" ry="13" fill="#2b1a4a" opacity="0.85"/>
+        <ellipse cx="242" cy="87" rx="4.5" ry="13" fill="#2b1a4a" opacity="0.85"/>
+        <circle cx="242" cy="73" r="7" fill="#ffd447" stroke="#2b1a4a" stroke-width="2.5"/>
+      </g>
+
+    </svg>
+  </div>
+</div>
 
 <div class="confetti" aria-hidden="true">
   <span></span><span></span><span></span><span></span><span></span>
