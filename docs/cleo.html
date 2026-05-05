@@ -1553,10 +1553,8 @@
     if (!audio) return;
     if (audio.paused) {
       audio.play();
-      if (btn) btn.textContent = '🎵 Musik stoppen';
     } else {
       audio.pause();
-      if (btn) btn.textContent = '🎵 Start/Stop Musik';
     }
   }
 </script>
