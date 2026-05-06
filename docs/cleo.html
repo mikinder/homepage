@@ -1367,6 +1367,23 @@
     const rockets = [];
     const particles = [];
 
+    function playWhistle(duration) {
+      try {
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(300 + Math.random() * 150, now);
+        osc.frequency.exponentialRampToValueAtTime(1600 + Math.random() * 600, now + duration * 0.85);
+        gain.gain.setValueAtTime(0.07, now);
+        gain.gain.linearRampToValueAtTime(0, now + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + duration);
+      } catch(e) {}
+    }
+
     function playBoom(isMega) {
       try {
         const now = audioCtx.currentTime;
@@ -1412,6 +1429,7 @@
         this.color = color;
         this.trail = [];
         this.dead = false;
+        playWhistle(Math.abs(this.vy) / 0.12 / 60);
       }
       update() {
         this.trail.push({ x: this.x, y: this.y, life: 1 });
