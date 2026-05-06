@@ -849,7 +849,7 @@
 
 <div id="plane-scene" aria-hidden="true">
   <div class="plane-group">
-    <div class="banner-flag">Hi Cleo! 🎉</div>
+    <div class="banner-flag">Happy Birthday, Cleo! 🎉</div>
     <div class="banner-rope"></div>
     <!-- Cessna-style cartoon plane, facing right -->
     <svg width="265" height="132" viewBox="0 0 265 132" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -929,7 +929,7 @@
         <button id="fw-btn" class="sticker-btn fw-sticker" onclick="startFeuerwerk()">🎆 Feuerwerk</button>
         <button id="musik-btn" class="sticker-btn music-sticker" onclick="toggleMusik()">🎵 Start/Stop Musik</button>
       </div>
-      <div class="banner-caption"><span class="bc-cake">🎂</span><span class="bc-line">Alles Gute zum 9. Geburtstag für Dich, Cleo!<br>Das ist ein Rätselbild. Finde den Fehler! Lach... 😄</span><span class="bc-from">Hier eine kleine Geschichte für Dich…</span><span class="bc-sign">Von Onkel Micha</span></div>
+      <div class="banner-caption"><span class="bc-cake">🎂</span><span class="bc-line">Alles Gute zum 9. Geburtstag für Dich, Cleo!<br>Hier ist ein Rätselbild für Dich. Finde den Fehler! Lach... 😄</span><span class="bc-from">Und ich habe noch eine kleine Geschichte über die magische Kurve für Dich geschrieben.</span><span class="bc-sign">Von Onkel Micha</span></div>
     </div>
     <h1>
       <span class="word w1">Die</span>
@@ -1331,15 +1331,12 @@
       void planeGroup.offsetWidth; // force reflow
       planeGroup.style.animation = '';
     }
-    let canvas = document.getElementById('fireworks');
-    if (!canvas) {
-      canvas = document.createElement('canvas');
-      canvas.id = 'fireworks';
-      canvas.setAttribute('aria-hidden', 'true');
-      document.body.appendChild(canvas);
-    }
-    canvas.style.opacity = '';
-    canvas.classList.remove('fade');
+    const existing = document.getElementById('fireworks');
+    if (existing) existing.remove();
+    const canvas = document.createElement('canvas');
+    canvas.id = 'fireworks';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(canvas);
     const ctx = canvas.getContext('2d');
     let W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
 
@@ -1539,7 +1536,9 @@
         requestAnimationFrame(frame);
       } else {
         canvas.classList.add('fade');
-        setTimeout(() => { canvas.remove(); _fwRunning = false; }, 1600);
+        _fwRunning = false;
+        const toRemove = canvas;
+        setTimeout(() => { toRemove.remove(); }, 1600);
       }
     }
     requestAnimationFrame(frame);
