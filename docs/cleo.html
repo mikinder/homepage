@@ -1370,37 +1370,31 @@
     function playLaunch(duration) {
       try {
         const now = audioCtx.currentTime;
-        const dur = Math.min(duration * 0.9, 1.6);
-        // Whoosh: highpass-filtered noise fading as rocket climbs
+        const dur = Math.min(duration * 0.9, 1.8);
+        const startFreq = 320 + Math.random() * 120;
+        const endFreq = startFreq * (9 + Math.random() * 4);
+        // Bandpass noise with rising center frequency → "huiiii"
         const samples = Math.floor(audioCtx.sampleRate * dur);
         const buf = audioCtx.createBuffer(1, samples, audioCtx.sampleRate);
         const data = buf.getChannelData(0);
         for (let i = 0; i < samples; i++) data[i] = Math.random() * 2 - 1;
         const noise = audioCtx.createBufferSource();
         noise.buffer = buf;
-        const hpf = audioCtx.createBiquadFilter();
-        hpf.type = 'highpass';
-        hpf.frequency.value = 900;
-        const whooshGain = audioCtx.createGain();
-        whooshGain.gain.setValueAtTime(0, now);
-        whooshGain.gain.linearRampToValueAtTime(0.35, now + 0.03);
-        whooshGain.gain.exponentialRampToValueAtTime(0.001, now + dur);
-        noise.connect(hpf);
-        hpf.connect(whooshGain);
-        whooshGain.connect(audioCtx.destination);
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.Q.value = 6;
+        filter.frequency.setValueAtTime(startFreq, now);
+        filter.frequency.exponentialRampToValueAtTime(endFreq, now + dur);
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.7, now + 0.04);
+        gain.gain.setValueAtTime(0.7, now + dur * 0.65);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+        noise.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
         noise.start(now);
         noise.stop(now + dur);
-        // Initial launch pop
-        const pop = audioCtx.createOscillator();
-        const popGain = audioCtx.createGain();
-        pop.frequency.setValueAtTime(110, now);
-        pop.frequency.exponentialRampToValueAtTime(35, now + 0.12);
-        popGain.gain.setValueAtTime(0.25, now);
-        popGain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-        pop.connect(popGain);
-        popGain.connect(audioCtx.destination);
-        pop.start(now);
-        pop.stop(now + 0.12);
       } catch(e) {}
     }
 
