@@ -1339,6 +1339,7 @@
     document.body.appendChild(canvas);
     const ctx = canvas.getContext('2d');
     let W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
     function resize() {
       W = window.innerWidth;
@@ -1366,6 +1367,42 @@
     const rockets = [];
     const particles = [];
 
+    function playBoom(isMega) {
+      try {
+        const now = audioCtx.currentTime;
+        const thumpDur = isMega ? 0.65 : 0.4;
+        const thump = audioCtx.createOscillator();
+        const thumpGain = audioCtx.createGain();
+        thump.frequency.setValueAtTime(isMega ? 65 : 85, now);
+        thump.frequency.exponentialRampToValueAtTime(22, now + thumpDur);
+        thumpGain.gain.setValueAtTime(isMega ? 0.55 : 0.35, now);
+        thumpGain.gain.exponentialRampToValueAtTime(0.001, now + thumpDur);
+        thump.connect(thumpGain);
+        thumpGain.connect(audioCtx.destination);
+        thump.start(now);
+        thump.stop(now + thumpDur);
+        const crackleDur = isMega ? 0.45 : 0.28;
+        const samples = Math.floor(audioCtx.sampleRate * crackleDur);
+        const buf = audioCtx.createBuffer(1, samples, audioCtx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < samples; i++) data[i] = Math.random() * 2 - 1;
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buf;
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.value = 900;
+        filter.Q.value = 0.7;
+        const noiseGain = audioCtx.createGain();
+        noiseGain.gain.setValueAtTime(isMega ? 0.3 : 0.18, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, now + crackleDur);
+        noise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(audioCtx.destination);
+        noise.start(now);
+        noise.stop(now + crackleDur);
+      } catch(e) {}
+    }
+
     class Rocket {
       constructor(x, targetY, color) {
         this.x = x;
@@ -1388,6 +1425,7 @@
       }
       explode() {
         const isMega = Math.random() < 0.35;
+        playBoom(isMega);
         const count = (isMega ? 320 : 200) + Math.floor(Math.random() * 180);
         const baseColor = this.color;
         const ringSpeed = (isMega ? 11 : 8) + Math.random() * 5;
@@ -1538,7 +1576,7 @@
         canvas.classList.add('fade');
         _fwRunning = false;
         const toRemove = canvas;
-        setTimeout(() => { toRemove.remove(); }, 1600);
+        setTimeout(() => { toRemove.remove(); audioCtx.close(); }, 1600);
       }
     }
     requestAnimationFrame(frame);
