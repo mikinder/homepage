@@ -1367,37 +1367,6 @@
     const rockets = [];
     const particles = [];
 
-    function playLaunch(duration) {
-      try {
-        const now = audioCtx.currentTime;
-        const dur = Math.min(duration * 0.9, 1.8);
-        const startFreq = 320 + Math.random() * 120;
-        const endFreq = startFreq * (9 + Math.random() * 4);
-        // Bandpass noise with rising center frequency → "huiiii"
-        const samples = Math.floor(audioCtx.sampleRate * dur);
-        const buf = audioCtx.createBuffer(1, samples, audioCtx.sampleRate);
-        const data = buf.getChannelData(0);
-        for (let i = 0; i < samples; i++) data[i] = Math.random() * 2 - 1;
-        const noise = audioCtx.createBufferSource();
-        noise.buffer = buf;
-        const filter = audioCtx.createBiquadFilter();
-        filter.type = 'bandpass';
-        filter.Q.value = 6;
-        filter.frequency.setValueAtTime(startFreq, now);
-        filter.frequency.exponentialRampToValueAtTime(endFreq, now + dur);
-        const gain = audioCtx.createGain();
-        gain.gain.setValueAtTime(0, now);
-        gain.gain.linearRampToValueAtTime(0.7, now + 0.04);
-        gain.gain.setValueAtTime(0.7, now + dur * 0.65);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
-        noise.connect(filter);
-        filter.connect(gain);
-        gain.connect(audioCtx.destination);
-        noise.start(now);
-        noise.stop(now + dur);
-      } catch(e) {}
-    }
-
     function playBoom(isMega) {
       try {
         const now = audioCtx.currentTime;
@@ -1443,7 +1412,6 @@
         this.color = color;
         this.trail = [];
         this.dead = false;
-        playLaunch(Math.abs(this.vy) / 0.12 / 60);
       }
       update() {
         this.trail.push({ x: this.x, y: this.y, life: 1 });
