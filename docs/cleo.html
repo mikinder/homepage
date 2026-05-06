@@ -1367,31 +1367,40 @@
     const rockets = [];
     const particles = [];
 
-    function playWhistle(duration) {
+    function playLaunch(duration) {
       try {
         const now = audioCtx.currentTime;
-        const dur = Math.min(duration * 0.45, 0.6);
-        const baseFreq = 700 + Math.random() * 400;
-        // Narrow bandpass filtered noise — airy whistle, not a pure oscillator tone
+        const dur = Math.min(duration * 0.9, 1.6);
+        // Whoosh: highpass-filtered noise fading as rocket climbs
         const samples = Math.floor(audioCtx.sampleRate * dur);
         const buf = audioCtx.createBuffer(1, samples, audioCtx.sampleRate);
         const data = buf.getChannelData(0);
         for (let i = 0; i < samples; i++) data[i] = Math.random() * 2 - 1;
         const noise = audioCtx.createBufferSource();
         noise.buffer = buf;
-        const filter = audioCtx.createBiquadFilter();
-        filter.type = 'bandpass';
-        filter.Q.value = 15;
-        filter.frequency.setValueAtTime(baseFreq, now);
-        filter.frequency.linearRampToValueAtTime(baseFreq * 1.25, now + dur);
-        const gain = audioCtx.createGain();
-        gain.gain.setValueAtTime(0.8, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + dur);
-        noise.connect(filter);
-        filter.connect(gain);
-        gain.connect(audioCtx.destination);
+        const hpf = audioCtx.createBiquadFilter();
+        hpf.type = 'highpass';
+        hpf.frequency.value = 900;
+        const whooshGain = audioCtx.createGain();
+        whooshGain.gain.setValueAtTime(0, now);
+        whooshGain.gain.linearRampToValueAtTime(0.35, now + 0.03);
+        whooshGain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+        noise.connect(hpf);
+        hpf.connect(whooshGain);
+        whooshGain.connect(audioCtx.destination);
         noise.start(now);
         noise.stop(now + dur);
+        // Initial launch pop
+        const pop = audioCtx.createOscillator();
+        const popGain = audioCtx.createGain();
+        pop.frequency.setValueAtTime(110, now);
+        pop.frequency.exponentialRampToValueAtTime(35, now + 0.12);
+        popGain.gain.setValueAtTime(0.25, now);
+        popGain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+        pop.connect(popGain);
+        popGain.connect(audioCtx.destination);
+        pop.start(now);
+        pop.stop(now + 0.12);
       } catch(e) {}
     }
 
@@ -1440,7 +1449,7 @@
         this.color = color;
         this.trail = [];
         this.dead = false;
-        playWhistle(Math.abs(this.vy) / 0.12 / 60);
+        playLaunch(Math.abs(this.vy) / 0.12 / 60);
       }
       update() {
         this.trail.push({ x: this.x, y: this.y, life: 1 });
