@@ -90,6 +90,9 @@
     text-align: center;
     padding: 30px 20px 10px;
     position: relative;
+    background: linear-gradient(180deg, var(--night) 0%, #1a3a6b 70%, var(--cream) 100%);
+    border-radius: 0 0 40px 40px;
+    margin-bottom: 20px;
   }
 
   .eyebrow {
@@ -573,6 +576,53 @@
     line-height: 1.45;
     color: var(--deep);
   }
+
+  /* Personal Card (ersetzt Foto-Banner) */
+  .personal-card {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    background: rgba(255,255,255,0.08);
+    border: 3px solid rgba(255,255,255,0.25);
+    border-radius: 24px;
+    padding: 28px 32px;
+    position: relative;
+  }
+  .pc-from {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--yellow);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .pc-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    line-height: 1.8;
+    color: #e8f0fe;
+    font-style: italic;
+  }
+  .pc-sig {
+    text-align: right;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--yellow);
+    margin-top: 14px;
+  }
+
+  /* Ship scene */
+  .chart-card--ship { background: linear-gradient(180deg, #87ceeb 0%, #b0e0e6 40%, #006994 40%, #004d73 100%); }
+  .chart-card--ship::before { content: "🛳️ Klick aufs Schiff! ⚓"; }
+
+  /* Mountain scene */
+  .chart-card--mountain { background: linear-gradient(180deg, #b3d4f5 0%, #87b8e8 35%, #4a7c59 60%, #2e5e35 100%); }
+  .chart-card--mountain::before { content: "🏔️ Klick auf einen Gipfel! ❄️"; }
+
+  /* Space scene */
+  .chart-card--space {
+    background: radial-gradient(ellipse at 30% 40%, #1a237e 0%, #0d1b4b 50%, #050d1f 100%);
+  }
+  .chart-card--space::before { content: "🚀 Klick auf einen Planeten! ⭐"; color: #90caf9; }
 
   /* Persönliche Botschaft — wie eine Glückwunschkarte */
   .personal-note {
