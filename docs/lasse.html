@@ -1294,100 +1294,102 @@
 </div>
 
 <script>
-  const data = {
-    // ===== Körpergröße =====
-    h1: {
-      color: '#ff8c42',
-      badge: 'Unter 150 cm (Erwachsene)',
-      percent: '≈ 2%',
-      emoji: '🧒 🌻 🎠',
-      title: 'Sehr klein',
-      text: 'Ganz links sind erwachsene Menschen, die <b>kleiner als 1,50 m</b> sind. Das sind nur <span class="percent">etwa 2 von 100</span>. Übrigens: Kinder wie du sind natürlich meistens in diesem Bereich — ihr wachst ja noch! 🌱'
-    },
-    h2: {
-      color: '#ffd447',
-      badge: '150–160 cm',
-      percent: '≈ 14%',
-      emoji: '👩 🌼 🎈',
-      title: 'Eher klein',
-      text: 'Hier sind <span class="percent">ungefähr 14 von 100 Erwachsenen</span>. Viele Mamas, Tanten und Omas sind in diesem Bereich. Etwas kleiner zu sein hat Vorteile: man passt überall rein und kommt bequem durch enge Stellen! 😉'
-    },
-    h3: {
-      color: '#4ddfaf',
-      badge: '160–180 cm',
-      percent: '≈ 68%',
-      emoji: '🧍‍♀️ 🎉 🧍',
-      title: 'Die große Mitte',
-      text: 'TADA! 🎉 Der größte Teil aller Erwachsenen ist in diesem grünen Bereich: <span class="percent">rund 68 von 100 Menschen</span>. Deshalb sind Türen, Stühle und Betten meistens genau für diese Größe gebaut. ✨'
-    },
-    h4: {
-      color: '#3aaff5',
-      badge: '180–190 cm',
-      percent: '≈ 14%',
-      emoji: '🧍 🚪 🏀',
-      title: 'Eher groß',
-      text: 'Im blauen Bereich sind wieder <span class="percent">etwa 14 von 100 Erwachsenen</span>. Das sind die, die beim Fotografieren hinten stehen müssen — und die beim Basketball einen kleinen Vorteil haben! 🏀'
-    },
-    h5: {
-      color: '#ff4fa3',
-      badge: 'Über 190 cm',
-      percent: '≈ 2%',
-      emoji: '🏀 🦒 🎢',
-      title: 'Sehr groß',
-      text: 'Ganz rechts, in der pinken Zone, sind Menschen, die <b>größer als 1,90 m</b> sind — nur <span class="percent">etwa 2 von 100</span>. Ein Türrahmen ist normalerweise etwa 2 m hoch — die müssen manchmal ordentlich den Kopf einziehen! 😄'
-    },
-
-    // ===== IQ =====
+  // ===== Schiff-Facts =====
+  const shipFacts = {
     1: {
-      color: '#ff8c42',
-      badge: 'IQ unter 70',
-      percent: '≈ 2%',
-      emoji: '🌱 🐢 🦋',
-      title: 'Die seltenen Schätze',
-      text: 'Ganz links unter der Kurve sind Menschen, denen Denk-Rätsel richtig schwer fallen. Das sind nur <span class="percent">etwa 2 von 100</span>. Aber weißt du was? Diese Menschen sind oft besonders herzlich, geduldig oder lieben Dinge mit ganzer Seele. Wenn du mal jemanden triffst, der etwas langsamer denkt — sei nett! 💛 Du kannst mit deinen Rätsel-Kräften eine richtig gute Helferin sein.'
+      emoji: '🛳️ 🛳️ 🛳️',
+      badge: 'Die Größe',
+      color: '#006064',
+      title: 'Riesenschiff!',
+      text: 'Die "Symphony of the Seas" ist <b>362 Meter lang</b> — das sind fast <span class="percent">4 Fußballfelder</span> hintereinander! An Bord leben bis zu 8.000 Menschen gleichzeitig. Eine schwimmende Stadt!'
     },
     2: {
-      color: '#ffd447',
-      badge: 'IQ 70–85',
-      percent: '≈ 14%',
-      emoji: '🌼 🎈 🐥',
-      title: 'Ein bisschen unter der Mitte',
-      text: 'Im gelben Bereich sind <span class="percent">rund 14 von 100 Menschen</span>. Denen fällt Mathe oder Lesen in der Schule vielleicht etwas schwerer — dafür sind sie oft richtig stark im Trösten, Basteln, Tanzen oder Witze-Erzählen. 🎨 Das ist ein super Reminder: Nicht alles Wichtige im Leben kann man mit einem Test messen!'
+      emoji: '🌊 🐋 🌊',
+      badge: 'Das Meer',
+      color: '#0277bd',
+      title: 'So viel Wasser!',
+      text: 'Die Ozeane bedecken <b>71% der Erde</b> — mehr als die Hälfte unseres Planeten ist Wasser! Und der tiefste Punkt, der Marianengraben, ist <span class="percent">11 Kilometer tief</span>. Dort war noch fast kein Mensch.'
     },
     3: {
-      color: '#4ddfaf',
-      badge: 'IQ 85–115',
-      percent: '≈ 68%',
-      emoji: '🌟 🎂 🦄',
-      title: 'Die große, bunte Mitte',
-      text: 'TADA! 🎉 Hier ist der größte Berg der Kurve — <span class="percent">ungefähr 68 von 100 Menschen</span>, also fast zwei Drittel aller Leute auf der Welt. Die meisten deiner Freundinnen, Mitschüler und Nachbarn sind genau in dieser großen, fröhlichen Mitte. Und das ist wunderbar — denn hier passieren die meisten Abenteuer, Freundschaften und verrückten Ideen! ✨'
+      emoji: '⚓ 🐘 ⚓',
+      badge: 'Der Anker',
+      color: '#ff5722',
+      title: 'So schwer!',
+      text: 'Ein Kreuzfahrtschiff-Anker wiegt bis zu <b>14 Tonnen</b> — so schwer wie <span class="percent">3 Elefanten</span>! Wenn das Schiff ankert, hält dieser Anker es fest, damit es nicht davontreibt.'
     },
     4: {
-      color: '#3aaff5',
-      badge: 'IQ 115–130',
-      percent: '≈ 14%',
-      emoji: '🚀 🧩 📚',
-      title: 'Hier bist DU zu Hause! 💙',
-      text: 'Willkommen in deinem Zuhause auf der Kurve! 🏡 Hier im blauen Bereich sind <span class="percent">etwa 14 von 100 Menschen</span> — und eine davon bist <b>du</b>. 🌟<br><br>Du merkst das vielleicht daran, dass du manche Sachen schneller verstehst als andere, dass du gern knifflige Fragen stellst, oder dass dein Kopf manchmal einfach nicht aufhört zu denken. 🧩 Das ist eine richtig coole Superkraft!<br><br>Aber: Du bist nicht <b>besser</b> als die anderen — du bist einfach <b>anders gut</b>. Die tollsten Dinge entstehen immer, wenn Menschen aus <b>allen</b> Farben der Kurve zusammen etwas erschaffen. 🤝💫'
-    },
-    5: {
-      color: '#ff4fa3',
-      badge: 'IQ über 130',
-      percent: '≈ 2%',
-      emoji: '🧠 💡 🔭',
-      title: 'Die seltenen Puzzle-Meister',
-      text: 'Ganz weit rechts, in der pinken Zone, sind nur <span class="percent">etwa 2 von 100 Menschen</span>. Ihre Köpfe arbeiten bei manchen Rätseln besonders schnell. 🧠<br><br>Übrigens: Die Grenze zwischen Blau und Pink ist <b>nicht</b> wichtig. Ob jemand ein winziges bisschen darunter oder darüber liegt, macht im Leben wirklich <i>gar keinen</i> Unterschied. Was zählt, ist, was man mit seinen Stärken macht — und ob man dabei freundlich zu anderen bleibt. 💝'
+      emoji: '🧭 ⭐ 🧭',
+      badge: 'Navigation',
+      color: '#006064',
+      title: 'Nach den Sternen!',
+      text: 'Früher fuhren Seefahrer nach den Sternen — vor allem nach dem <b>Polarstern</b>, der immer genau nach Norden zeigt. Heute macht das ein Computer. Aber die Sterne zeigen <span class="percent">immer noch den Weg.</span>'
     }
   };
 
-  // Hilfsfunktion: Panel mit den Daten füllen
-  function fillPanel(panelEl, d, id) {
-    const labelOnDark = (String(id) === '3' || String(id) === '5' || String(id) === 'h3' || String(id) === 'h5');
+  // ===== Berg-Facts =====
+  const mountainFacts = {
+    montblanc: {
+      emoji: '🇫🇷 🏔️ 🇮🇹',
+      badge: 'Mont Blanc · 4.808 m',
+      color: '#2e7d32',
+      title: 'König der Alpen!',
+      text: 'Der Mont Blanc ist <b>4.808 Meter hoch</b> — der höchste Berg der Alpen. Von oben siehst du gleichzeitig <span class="percent">Frankreich, Italien und die Schweiz</span>. Er liegt genau auf der Grenze!'
+    },
+    everest: {
+      emoji: '🏔️ 🌏 🏔️',
+      badge: 'Mount Everest · 8.849 m',
+      color: '#1b5e20',
+      title: 'Dach der Welt!',
+      text: 'Der Mount Everest ist mit <b>8.849 Metern</b> der höchste Berg der Welt. Oben ist es so kalt wie eine Tiefkühltruhe — nur <span class="percent">viel kälter: bis −60°C</span>! Und die Luft ist so dünn, dass man kaum atmen kann.'
+    },
+    zugspitze: {
+      emoji: '🇩🇪 🚡 🇩🇪',
+      badge: 'Zugspitze · 2.962 m',
+      color: '#388e3c',
+      title: 'Deutschlands Dach!',
+      text: 'Die Zugspitze ist mit <b>2.962 Metern</b> der höchste Berg Deutschlands. Mit der <span class="percent">Seilbahn kommt man in 10 Minuten</span> ganz nach oben — und schaut von dort auf Deutschland, Österreich und Italien hinunter!'
+    }
+  };
+
+  // ===== Weltraum-Facts =====
+  const spaceFacts = {
+    earth: {
+      emoji: '🌍 🌏 🌎',
+      badge: 'Die Erde',
+      color: '#0277bd',
+      title: 'Unsere blaue Murmel!',
+      text: 'Von oben sieht die Erde aus wie eine <b>blaue Murmel</b> im Dunkeln. Astronauten nennen das den "Overview Effect" — und werden dabei ganz still. Sie sagen: <span class="percent">Man sieht keine Grenzen zwischen Ländern</span>. Nur einen wunderschönen blauen Planeten.'
+    },
+    moon: {
+      emoji: '🌙 🚀 🌙',
+      badge: 'Der Mond · 384.000 km',
+      color: '#e65100',
+      title: 'Unser Nachbar!',
+      text: 'Der Mond ist <b>384.000 Kilometer</b> von uns entfernt — das sind <span class="percent">10 Reisen rund um die Erde</span>! Apollo 11 brauchte 4 Tage, um dort anzukommen. Neil Armstrong war 1969 der erste Mensch auf dem Mond.'
+    },
+    sun: {
+      emoji: '☀️ 🌞 ☀️',
+      badge: 'Die Sonne · 150 Mio. km',
+      color: '#f57f17',
+      title: 'Riesenball aus Feuer!',
+      text: 'Die Sonne ist so riesig, dass <b>1,3 Millionen Erden</b> hineinpassen würden! Ihr Licht braucht <span class="percent">8 Minuten</span>, um zu uns zu kommen. Wenn die Sonne plötzlich erlöschen würde, würden wir es erst 8 Minuten später merken.'
+    },
+    mars: {
+      emoji: '🔴 🚀 👨‍🚀',
+      badge: 'Der Mars',
+      color: '#c62828',
+      title: 'Das nächste Ziel!',
+      text: 'Vielleicht landet der <b>erste Mensch auf dem Mars</b>, wenn Lasse erwachsen ist. Der Rote Planet hat Berge, die <span class="percent">dreimal so hoch wie der Everest</span> sind! Vielleicht sogar Lasse selbst? 🚀'
+    }
+  };
+
+  // Hilfsfunktion: Panel befüllen
+  function fillPanel(panelEl, d) {
     panelEl.innerHTML = `
       <div class="panel-content">
         <div class="emoji-row">${d.emoji}</div>
-        <span class="panel-badge" style="background:${d.color}; color:${labelOnDark ? 'white' : '#2b1a4a'};">
-          ${d.badge} &nbsp;•&nbsp; ${d.percent}
+        <span class="panel-badge" style="background:${d.color}; color:white;">
+          ${d.badge}
         </span>
         <h2>${d.title}</h2>
         <p>${d.text}</p>
@@ -1395,38 +1397,67 @@
     `;
   }
 
-  // Alle SVG-Segmente (beide Kurven) verkabeln
-  document.querySelectorAll('.seg').forEach(seg => {
-    seg.addEventListener('click', () => {
-      const id = seg.dataset.seg;
-      const d = data[id];
+  function scrollToPanel(panelEl) {
+    const rect = panelEl.getBoundingClientRect();
+    if (rect.top < 0 || rect.bottom > window.innerHeight) {
+      panelEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // Schiff-Handler
+  document.querySelectorAll('.ship-part').forEach(el => {
+    el.addEventListener('click', () => {
+      const factId = el.dataset.shipFact;
+      const d = shipFacts[factId];
       if (!d) return;
-
-      // aktives Segment markieren — aber nur innerhalb der GLEICHEN Kurve
-      const ownSvg = seg.closest('svg');
-      ownSvg.querySelectorAll('.seg').forEach(s => s.classList.remove('active'));
-      seg.classList.add('active');
-
-      // Passendes Panel finden: das nächste .panel nach dem SVG
-      const card = ownSvg.closest('.chart-card');
-      const panelEl = card.nextElementSibling;
-      if (!panelEl || !panelEl.classList.contains('panel')) return;
-
-      fillPanel(panelEl, d, id);
-
-      const rect = panelEl.getBoundingClientRect();
-      if (rect.top < 0 || rect.bottom > window.innerHeight) {
-        panelEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      document.querySelectorAll('.ship-part').forEach(p => p.style.opacity = '0.6');
+      document.querySelectorAll(`[data-ship-fact="${factId}"]`).forEach(p => p.style.opacity = '1');
+      const panel = document.getElementById('panelShip');
+      fillPanel(panel, d);
+      scrollToPanel(panel);
     });
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+    });
+  });
 
-    seg.setAttribute('tabindex', '0');
-    seg.setAttribute('role', 'button');
-    seg.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        seg.click();
-      }
+  // Berg-Handler
+  document.querySelectorAll('.mtn-peak').forEach(el => {
+    el.addEventListener('click', () => {
+      const factId = el.dataset.mtnFact;
+      const d = mountainFacts[factId];
+      if (!d) return;
+      document.querySelectorAll('.mtn-peak').forEach(p => p.style.opacity = '0.5');
+      el.style.opacity = '1';
+      const panel = document.getElementById('panelMountain');
+      fillPanel(panel, d);
+      scrollToPanel(panel);
+    });
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+    });
+  });
+
+  // Planeten-Handler
+  document.querySelectorAll('.planet').forEach(el => {
+    el.addEventListener('click', () => {
+      const factId = el.dataset.spaceFact;
+      const d = spaceFacts[factId];
+      if (!d) return;
+      document.querySelectorAll('.planet').forEach(p => p.style.opacity = '0.5');
+      el.style.opacity = '1';
+      const panel = document.getElementById('panelSpace');
+      fillPanel(panel, d);
+      scrollToPanel(panel);
+    });
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
     });
   });
 
