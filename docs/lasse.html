@@ -1028,90 +1028,81 @@
     </p>
   </header>
 
-  <!-- ===== SECTION HEADER: KÖRPERGRÖSSE ===== -->
-  <h2 class="section-header section-header--mint">
+  <!-- ===== SECTION HEADER: KREUZFAHRTSCHIFF ===== -->
+  <h2 class="section-header section-header--ocean">
     <span class="sh-num">1</span>
-    <span class="sh-text">Überleg mal, wie groß sind eigentlich Erwachsene? Sind alle gleich oder alle total unterschiedlich groß?</span>
+    <span class="sh-text">Stell dir vor: du stehst auf dem Deck und siehst nichts als Meer… 🛳️</span>
   </h2>
 
-  <!-- ===== KÖRPERGRÖSSE-KURVE ===== -->
-  <div class="chart-card chart-card--intro">
+  <!-- ===== KREUZFAHRTSCHIFF ===== -->
+  <div class="chart-card chart-card--ship">
     <div class="chart-wrap">
-      <svg class="curve" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" aria-label="Körpergröße-Verteilungskurve">
+      <svg id="ship-svg" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" aria-label="Kreuzfahrtschiff auf dem Meer">
         <defs>
-          <pattern id="grid2" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-            <circle cx="20" cy="20" r="1.2" fill="#e8dff5"/>
-          </pattern>
+          <linearGradient id="sky-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#87ceeb"/>
+            <stop offset="100%" stop-color="#b0e0e6"/>
+          </linearGradient>
+          <linearGradient id="sea-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#006994"/>
+            <stop offset="100%" stop-color="#004d73"/>
+          </linearGradient>
         </defs>
-        <rect x="60" y="20" width="820" height="310" fill="url(#grid2)" rx="14"/>
-
-        <!-- 5 klickbare Segmente -->
-        <path class="seg" data-seg="h1" fill="#ff8c42" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"
-              d="M 60,330 L 60,328 Q 100,326 140,320 Q 180,310 215,295 L 215,330 Z"/>
-        <path class="seg" data-seg="h2" fill="#ffd447" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"
-              d="M 215,330 L 215,295 Q 250,275 285,245 Q 320,210 345,170 L 345,330 Z"/>
-        <path class="seg" data-seg="h3" fill="#4ddfaf" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"
-              d="M 345,330 L 345,170 Q 380,110 420,70 Q 445,52 470,50 Q 495,52 520,70 Q 560,110 595,170 L 595,330 Z"/>
-        <path class="seg" data-seg="h4" fill="#3aaff5" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"
-              d="M 595,330 L 595,170 Q 620,210 655,245 Q 690,275 725,295 L 725,330 Z"/>
-        <path class="seg" data-seg="h5" fill="#ff4fa3" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"
-              d="M 725,330 L 725,295 Q 760,310 800,320 Q 840,326 880,328 L 880,330 Z"/>
-
-        <line x1="60" y1="330" x2="880" y2="330" stroke="#2b1a4a" stroke-width="3" stroke-linecap="round"/>
-
-        <!-- Größen-Markierungen (Erwachsene in cm) -->
-        <g>
-          <line x1="215" y1="330" x2="215" y2="340" stroke="#2b1a4a" stroke-width="2"/>
-          <text class="iq-tick" x="215" y="358">150 cm</text>
-
-          <line x1="345" y1="330" x2="345" y2="340" stroke="#2b1a4a" stroke-width="2"/>
-          <text class="iq-tick" x="345" y="358">160 cm</text>
-
-          <line x1="470" y1="330" x2="470" y2="340" stroke="#2b1a4a" stroke-width="2"/>
-          <text class="iq-tick" x="470" y="358" style="font-size:15px; fill:#a855f7;">170 cm ⭐</text>
-
-          <line x1="595" y1="330" x2="595" y2="340" stroke="#2b1a4a" stroke-width="2"/>
-          <text class="iq-tick" x="595" y="358">180 cm</text>
-
-          <line x1="725" y1="330" x2="725" y2="340" stroke="#2b1a4a" stroke-width="2"/>
-          <text class="iq-tick" x="725" y="358">190 cm</text>
-        </g>
-
-        <!-- Menschen-Emojis passend zur Größe -->
-        <text x="137" y="315" style="font-size:22px" text-anchor="middle" pointer-events="none">🧒</text>
-        <text x="280" y="285" style="font-size:24px" text-anchor="middle" pointer-events="none">👩</text>
-        <text x="470" y="200" style="font-size:36px" text-anchor="middle" pointer-events="none">🧍‍♀️</text>
-        <text x="660" y="285" style="font-size:24px" text-anchor="middle" pointer-events="none">🧍</text>
-        <text x="805" y="315" style="font-size:22px" text-anchor="middle" pointer-events="none">🏀</text>
-
-        <!-- Prozente -->
-        <text x="137" y="323" class="seg-label" style="font-size:11px;" pointer-events="none">~2%</text>
-        <text x="280" y="323" class="seg-label" style="font-size:11px;" pointer-events="none">~14%</text>
-        <text x="470" y="323" class="seg-label" style="font-size:14px; fill:white;" pointer-events="none">68%</text>
-        <text x="660" y="323" class="seg-label" style="font-size:11px;" pointer-events="none">~14%</text>
-        <text x="805" y="323" class="seg-label" style="font-size:11px;" pointer-events="none">~2%</text>
-
-        <text x="470" y="388" class="axis-label">← kleiner ———— wie groß ein Mensch ist ———— größer →</text>
-
-        <g transform="translate(470, 32)">
-          <text text-anchor="middle" style="font-family:'Caveat',cursive; font-size:22px; fill:#a855f7; font-weight:700;">
-            Die meisten sind hier! 👇
-          </text>
-          <path d="M -20,10 Q -10,25 -5,38" stroke="#a855f7" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M -10,32 L -5,38 L -13,40" stroke="#a855f7" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
+        <!-- Himmel -->
+        <rect x="0" y="0" width="900" height="230" fill="url(#sky-grad)" rx="14"/>
+        <!-- Meer -->
+        <rect x="0" y="230" width="900" height="170" fill="url(#sea-grad)"/>
+        <!-- Wellen -->
+        <path d="M 0,245 Q 90,235 180,245 Q 270,255 360,245 Q 450,235 540,245 Q 630,255 720,245 Q 810,235 900,245" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="3"/>
+        <path d="M 0,270 Q 90,260 180,270 Q 270,280 360,270 Q 450,260 540,270 Q 630,280 720,270 Q 810,260 900,270" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        <!-- Schiffsrumpf -->
+        <path d="M 140,200 L 760,200 L 790,228 L 110,228 Z" fill="#1565c0" stroke="#0d47a1" stroke-width="3"/>
+        <!-- Aufbau (Hauptdeck) -->
+        <rect x="190" y="138" width="520" height="66" rx="6" fill="#2196f3" stroke="#0d47a1" stroke-width="3"/>
+        <!-- Brücke (oberes Deck) -->
+        <rect x="330" y="98" width="240" height="44" rx="5" fill="#1976d2" stroke="#0d47a1" stroke-width="2.5"/>
+        <!-- Schornstein 1 (klickbar → Fact 3) -->
+        <rect class="ship-part" data-ship-fact="3" x="385" y="60" width="42" height="42" rx="5"
+              fill="#ff5722" stroke="#0d47a1" stroke-width="2.5" style="cursor:pointer"/>
+        <text class="ship-part" data-ship-fact="3" x="406" y="87" text-anchor="middle"
+              font-size="18" style="cursor:pointer;">🔥</text>
+        <!-- Schornstein 2 -->
+        <rect x="462" y="65" width="36" height="36" rx="4" fill="#ff5722" stroke="#0d47a1" stroke-width="2"/>
+        <!-- Fensterreihe (klickbar → Fact 1) -->
+        <rect class="ship-part" data-ship-fact="1" x="200" y="150" width="32" height="24" rx="4"
+              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
+        <rect class="ship-part" data-ship-fact="1" x="248" y="150" width="32" height="24" rx="4"
+              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
+        <rect class="ship-part" data-ship-fact="1" x="296" y="150" width="32" height="24" rx="4"
+              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
+        <rect class="ship-part" data-ship-fact="1" x="572" y="150" width="32" height="24" rx="4"
+              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
+        <rect class="ship-part" data-ship-fact="1" x="620" y="150" width="32" height="24" rx="4"
+              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
+        <rect class="ship-part" data-ship-fact="1" x="668" y="150" width="32" height="24" rx="4"
+              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
+        <!-- Wasser-Bereich (klickbar → Fact 2) -->
+        <text class="ship-part" data-ship-fact="2" x="60" y="270"
+              font-size="32" style="cursor:pointer;" text-anchor="middle">🌊</text>
+        <text class="ship-part" data-ship-fact="2" x="840" y="270"
+              font-size="32" style="cursor:pointer;" text-anchor="middle">🌊</text>
+        <!-- Anker (klickbar → Fact 4) -->
+        <text class="ship-part" data-ship-fact="4" x="155" y="218"
+              font-size="26" style="cursor:pointer;" text-anchor="middle">⚓</text>
+        <!-- Klick-Hinweis -->
+        <text x="450" y="390" text-anchor="middle" font-size="13"
+              fill="rgba(255,255,255,0.6)" font-family="Nunito, sans-serif">← Klick auf das Schiff! →</text>
       </svg>
     </div>
   </div>
 
-  <div class="panel" id="panelH">
-    <div class="panel-placeholder" id="placeholderH">
-      <span class="big-emoji">📏</span>
+  <div class="panel" id="panelShip">
+    <div class="panel-placeholder" id="placeholderShip">
+      <span class="big-emoji">🛳️</span>
       <h3>Probier's mal aus!</h3>
-      <p>Tippe auf einen bunten Abschnitt oben — dann erkläre ich dir, wer da drin steckt. 👆</p>
+      <p>Klick auf einen Teil des Schiffes — dann verrate ich dir ein Geheimnis! 👆</p>
     </div>
   </div>
-
   <!-- ===== SECTION HEADER: IQ ===== -->
   <h2 class="section-header section-header--pink">
     <span class="sh-num">2</span>
