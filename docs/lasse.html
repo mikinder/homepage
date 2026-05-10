@@ -1370,7 +1370,7 @@
     sun: {
       emoji: '☀️ 🌞 ☀️',
       badge: 'Die Sonne · 150 Mio. km',
-      color: '#f57f17',
+      color: '#d2691e',
       title: 'Riesenball aus Feuer!',
       text: 'Die Sonne ist so riesig, dass <b>1,3 Millionen Erden</b> hineinpassen würden! Ihr Licht braucht <span class="percent">8 Minuten</span>, um zu uns zu kommen. Wenn die Sonne plötzlich erlöschen würde, würden wir es erst 8 Minuten später merken.'
     },
@@ -1410,7 +1410,7 @@
       const factId = el.dataset.shipFact;
       const d = shipFacts[factId];
       if (!d) return;
-      document.querySelectorAll('.ship-part').forEach(p => p.style.opacity = '0.6');
+      document.querySelectorAll('.ship-part').forEach(p => p.style.opacity = '0.5');
       document.querySelectorAll(`[data-ship-fact="${factId}"]`).forEach(p => p.style.opacity = '1');
       const panel = document.getElementById('panelShip');
       fillPanel(panel, d);
