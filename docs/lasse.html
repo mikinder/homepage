@@ -1005,6 +1005,7 @@
 
   <header>
     <div class="personal-card">
+      <img src="micha_ski_star.jpeg" alt="Onkel Micha" style="display:block;width:100%;max-height:380px;border-radius:16px;object-fit:cover;object-position:center;border:3px solid rgba(255,212,71,0.8);margin-bottom:16px;box-shadow:4px 4px 0 rgba(43,26,74,0.3);">
       <div class="pc-from">💌 Von Onkel Micha</div>
       <p class="pc-text">
         Lasse, heute wirst du 8 Jahre alt! Weißt du, was alle großen Entdecker gemeinsam haben?
@@ -1030,6 +1031,10 @@
     <p class="subtitle">
       Das Meer, die Berge, die Sterne — drei Welten warten auf dich. Klick dich durch und entdecke die Geheimnisse, die sich dahinter verbergen… 👇
     </p>
+    <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:18px; padding-bottom:8px;">
+      <button onclick="startFeuerwerk()" class="sticker-btn fw-sticker" style="position:relative; bottom:auto; left:auto;">🎆 Feuerwerk!</button>
+      <button id="musik-btn" onclick="toggleMusik()" class="sticker-btn music-sticker" style="position:relative; bottom:auto; right:auto;">🎵 Musik an!</button>
+    </div>
   </header>
 
   <!-- ===== SECTION HEADER: KREUZFAHRTSCHIFF ===== -->
@@ -1731,8 +1736,10 @@
     if (!audio) return;
     if (audio.paused) {
       audio.play();
+      if (btn) btn.textContent = '🎵 Musik aus!';
     } else {
       audio.pause();
+      if (btn) btn.textContent = '🎵 Musik an!';
     }
   }
 </script>
