@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎉 Alles Gute, Lasse! Die große Reise 🚀</title>
+<title>🎉 Happy Birthday, Lasse! 🎂</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@600;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
 <style>
   :root {
     --pink: #ff4fa3;
@@ -15,804 +15,105 @@
     --mint: #4ddfaf;
     --yellow: #ffd447;
     --orange: #ff8c42;
-    --red: #ff5e5e;
-    --cream: #fff8ec;
     --deep: #2b1a4a;
-    --shadow: 6px 6px 0 var(--deep);
-    --shadow-sm: 3px 3px 0 var(--deep);
-    --ocean: #006064;
-    --ocean-light: #e0f7fa;
-    --forest: #2e7d32;
-    --forest-light: #e8f5e9;
-    --night: #0d1b4b;
-    --night-mid: #1a237e;
-    --starlight: #90caf9;
+    --cream: #fff8ec;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html, body { overflow-x: hidden; }
 
   body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--cream);
-    background-image:
-      radial-gradient(circle at 10% 20%, rgba(255, 79, 163, 0.12) 0%, transparent 30%),
-      radial-gradient(circle at 90% 10%, rgba(168, 85, 247, 0.12) 0%, transparent 30%),
-      radial-gradient(circle at 80% 80%, rgba(77, 223, 175, 0.12) 0%, transparent 30%),
-      radial-gradient(circle at 15% 85%, rgba(255, 212, 71, 0.15) 0%, transparent 30%);
-    color: var(--deep);
+    font-family: 'Fredoka', sans-serif;
+    background: var(--deep);
     min-height: 100vh;
-    padding: 20px;
-    position: relative;
-  }
-
-  /* Konfetti im Hintergrund */
-  .confetti {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  .confetti span {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    opacity: 0.7;
-    animation: float 8s infinite ease-in-out;
-  }
-  .confetti span:nth-child(1)  { top: 5%;  left: 5%;   background: var(--pink);   transform: rotate(15deg);  animation-delay: 0s; }
-  .confetti span:nth-child(2)  { top: 12%; left: 88%;  background: var(--yellow); border-radius: 50%;       animation-delay: 1s; }
-  .confetti span:nth-child(3)  { top: 25%; left: 45%;  background: var(--mint);   transform: rotate(45deg);  animation-delay: 2s; }
-  .confetti span:nth-child(4)  { top: 40%; left: 92%;  background: var(--purple); border-radius: 50%;       animation-delay: 3s; }
-  .confetti span:nth-child(5)  { top: 55%; left: 3%;   background: var(--orange); transform: rotate(30deg);  animation-delay: 1.5s; }
-  .confetti span:nth-child(6)  { top: 70%; left: 80%;  background: var(--blue);   border-radius: 50%;       animation-delay: 2.5s; }
-  .confetti span:nth-child(7)  { top: 85%; left: 20%;  background: var(--pink);   transform: rotate(60deg);  animation-delay: 0.5s; }
-  .confetti span:nth-child(8)  { top: 90%; left: 70%;  background: var(--yellow); border-radius: 50%;       animation-delay: 3.5s; }
-  .confetti span:nth-child(9)  { top: 15%; left: 25%;  background: var(--mint);   transform: rotate(20deg);  animation-delay: 2.2s; }
-  .confetti span:nth-child(10) { top: 60%; left: 50%;  background: var(--red);    border-radius: 50%;       animation-delay: 1.8s; }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50%      { transform: translateY(-30px) rotate(180deg); }
-  }
-  @keyframes rocketFly {
-    0%, 100% { transform: translate(0, 0); }
-    50%       { transform: translate(-30px, -20px); }
-  }
-
-  .wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Kopfbereich */
-  header {
-    text-align: center;
-    padding: 30px 20px 10px;
-    position: relative;
-    background: linear-gradient(180deg, var(--night) 0%, #1a3a6b 70%, var(--cream) 100%);
-    border-radius: 0 0 40px 40px;
-    margin-bottom: 20px;
-  }
-
-  .eyebrow {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    color: var(--purple);
-    transform: rotate(-2deg);
-    display: inline-block;
-    margin-bottom: 8px;
-  }
-
-  /* Foto-Banner ganz oben */
-  .banner {
-    max-width: 560px;
-    margin: 0 auto 48px;
-    padding: 10px 10px 14px;
-    background: white;
-    border: 4px solid var(--deep);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    transform: rotate(-1deg);
-    position: relative;
-  }
-  .banner::before,
-  .banner::after {
-    content: "";
-    position: absolute;
-    top: -12px;
-    width: 70px;
-    height: 22px;
-    background: rgba(255, 212, 71, 0.7);
-    border: 1.5px dashed rgba(43,26,74,0.35);
-  }
-  .banner::before { left: 12%;  transform: rotate(-6deg); }
-  .banner::after  { right: 12%; transform: rotate(5deg); background: rgba(77,223,175,0.7); }
-  .banner img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    object-position: center center;
-    border-radius: 12px;
-  }
-
-  /* Banner-Caption: Gruß-Text direkt im Foto-Banner */
-  .banner-caption {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
-    margin: 12px auto 0;
-    padding: 10px 22px;
-    background: white;
-    border: 3px solid var(--deep);
-    border-radius: 22px;
-    box-shadow: var(--shadow-sm);
-    transform: rotate(-1.5deg);
-    max-width: 100%;
   }
-  .banner {
-    text-align: center;
+
+  /* Buttons */
+  .buttons {
+    display: flex;
+    gap: 14px;
+    padding: 20px 16px;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    flex-shrink: 0;
   }
-  .bc-cake {
-    display: none;
-  }
-  .bc-line {
+  .btn {
+    flex: 1;
     font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    font-size: clamp(0.92rem, 1.8vw, 1.1rem);
-    color: var(--deep);
+    font-weight: 700;
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
+    border: 3px solid var(--deep);
+    border-radius: 50px;
+    padding: 18px 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.4);
     line-height: 1.2;
     text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    animation: btn-wiggle 2.2s ease-in-out infinite;
+    min-height: 64px;
   }
-  .bc-line::before { content: "🎂 "; }
-  .bc-from {
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
-    color: var(--pink);
-    line-height: 1;
-    margin-top: 2px;
+  .btn:active {
+    transform: scale(0.93) !important;
+    box-shadow: 1px 1px 0 rgba(0,0,0,0.4) !important;
+    animation: none !important;
   }
-  .bc-sign {
-    align-self: flex-end;
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: clamp(1.05rem, 1.9vw, 1.25rem);
-    color: var(--purple);
-    line-height: 1;
-    margin-top: 8px;
-    margin-right: 4px;
-    transform: rotate(-3deg);
-  }
-  .bc-sign::before { content: "— "; }
-
-  @media (max-width: 560px) {
-    .banner-caption {
-      padding: 8px 18px;
-    }
-    .bc-line { font-size: 0.9rem; }
-    .bc-from { font-size: 1.25rem; }
-  }
-  @media (max-width: 360px) {
-    .banner-caption {
-      padding: 8px 14px;
-    }
-    .bc-line { font-size: 0.82rem; }
-  }
-
-  h1 {
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 700;
-    font-size: clamp(2.2rem, 6vw, 4.2rem);
-    line-height: 1.05;
+  .btn-fw {
+    background: linear-gradient(135deg, var(--yellow), var(--orange));
     color: var(--deep);
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
+    animation-delay: 0s;
   }
-
-  h1 .word {
-    display: inline-block;
-    padding: 4px 14px;
-    border-radius: 14px;
-    margin: 3px 2px;
-    transform: rotate(-1.5deg);
-    box-shadow: var(--shadow-sm);
-    border: 3px solid var(--deep);
-  }
-  h1 .w1 { background: var(--yellow); }
-  h1 .w2 { background: var(--pink); color: var(--cream); transform: rotate(2deg); }
-  h1 .w3 { background: var(--mint); transform: rotate(-1deg); }
-
-  .subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    max-width: 680px;
-    margin: 0 auto;
-    color: #5a4a7a;
-    font-weight: 600;
-  }
-
-  /* Eröffnungsfrage */
-  .opening-question {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: white;
-    border: 4px solid var(--deep);
-    border-radius: 999px;
-    padding: 14px 28px;
-    margin: 10px auto 22px;
-    box-shadow: var(--shadow-sm);
-    transform: rotate(-1.5deg);
-    animation: bob 3s infinite ease-in-out;
-  }
-  .opening-question p {
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: clamp(1.3rem, 3vw, 1.9rem);
+  .btn-music {
+    background: linear-gradient(135deg, var(--mint), var(--blue));
     color: var(--deep);
-    margin: 0;
-    line-height: 1.1;
+    animation-delay: 1.1s;
   }
-  .opening-question p b {
-    background: linear-gradient(120deg, transparent 0%, transparent 15%, var(--yellow) 15%, var(--yellow) 90%, transparent 90%);
-    padding: 0 4px;
-  }
-  .oq-emoji {
-    font-size: 1.6rem;
-    display: inline-block;
-    animation: sparkle 1.6s infinite ease-in-out;
-  }
-  .oq-emoji:last-child { animation-delay: 0.8s; }
-  @keyframes sparkle {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    50%      { transform: scale(1.3) rotate(20deg); opacity: 0.8; }
-  }
-  @keyframes bob {
-    0%, 100% { transform: rotate(-1.5deg) translateY(0); }
-    50%      { transform: rotate(-1deg) translateY(-4px); }
+  @keyframes btn-wiggle {
+    0%, 100% { transform: rotate(-1.5deg) scale(1); }
+    25%       { transform: rotate(1deg) scale(1.03); }
+    75%       { transform: rotate(-2.5deg) scale(1.02); }
   }
 
-  /* Kurven-Bereich */
-  .chart-card {
-    background: white;
-    border: 4px solid var(--deep);
-    border-radius: 28px;
-    padding: 30px 20px 20px;
-    margin: 40px 0 30px;
-    box-shadow: var(--shadow);
+  /* Photo */
+  .photo-wrap {
+    width: 100%;
+    max-width: 500px;
     position: relative;
   }
-
-  .chart-card::before {
-    content: "🎯 Klick auf die Farben! 🎨";
-    position: absolute;
-    top: -22px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    background: var(--purple);
-    color: white;
-    padding: 8px 22px;
-    border-radius: 999px;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    border: 3px solid var(--deep);
-    box-shadow: var(--shadow-sm);
-    white-space: nowrap;
-  }
-
-  .chart-wrap {
-    width: 100%;
-    overflow: visible;
-  }
-
-  svg.curve {
+  .photo-wrap img {
     width: 100%;
     height: auto;
     display: block;
   }
-
-  .seg {
-    cursor: pointer;
-    transition: transform 0.2s ease, filter 0.2s ease;
-    transform-box: fill-box;
-    transform-origin: bottom;
-  }
-  .seg:hover {
-    transform: translateY(-6px);
-    filter: brightness(1.08) drop-shadow(0 6px 0 rgba(43,26,74,0.4));
-  }
-  .seg.active {
-    transform: translateY(-10px);
-    filter: brightness(1.12) drop-shadow(0 8px 0 rgba(43,26,74,0.5));
-  }
-
-  .seg-label {
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    fill: var(--deep);
-    pointer-events: none;
-    text-anchor: middle;
-  }
-
-  .axis-label {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    fill: #6b5a8a;
-    text-anchor: middle;
-  }
-
-  .iq-tick {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    fill: var(--deep);
-    text-anchor: middle;
-  }
-
-  /* Erklär-Panel */
-  .panel {
-    background: white;
-    border: 4px solid var(--deep);
-    border-radius: 24px;
-    padding: 30px;
-    min-height: 220px;
-    box-shadow: var(--shadow);
-    position: relative;
-    transition: all 0.3s ease;
-  }
-
-  .panel-placeholder {
-    text-align: center;
-    padding: 40px 20px;
-  }
-  .panel-placeholder .big-emoji {
-    font-size: 4rem;
-    display: block;
-    margin-bottom: 10px;
-    animation: wiggle 2s infinite ease-in-out;
-  }
-  @keyframes wiggle {
-    0%, 100% { transform: rotate(-8deg); }
-    50%      { transform: rotate(8deg); }
-  }
-  .panel-placeholder h3 {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1.6rem;
-    color: var(--deep);
-    margin-bottom: 8px;
-  }
-  .panel-placeholder p {
-    font-size: 1.05rem;
-    color: #6b5a8a;
-  }
-
-  .panel-content {
-    animation: popin 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  @keyframes popin {
-    0%   { opacity: 0; transform: scale(0.9); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-
-  .panel-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 999px;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    border: 3px solid var(--deep);
-    margin-bottom: 14px;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .panel h2 {
-    font-family: 'Fredoka', sans-serif;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    line-height: 1.15;
-    margin-bottom: 12px;
-  }
-
-  .panel .emoji-row {
-    font-size: 2.2rem;
-    margin-bottom: 14px;
-    letter-spacing: 6px;
-  }
-
-  .panel p {
-    font-size: 1.1rem;
-    line-height: 1.55;
-    color: #3a2a5a;
-    margin-bottom: 12px;
-  }
-
-  .panel .percent {
-    display: inline-block;
-    background: var(--yellow);
-    padding: 3px 10px;
-    border-radius: 8px;
-    font-weight: 900;
-    border: 2px solid var(--deep);
-    font-size: 1.05em;
-  }
-
-  /* Section-Headline vor jeder Kurve */
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    max-width: 900px;
-    margin: 50px auto 20px;
-    padding: 20px 26px 20px 20px;
-    border: 4px solid var(--deep);
-    border-radius: 22px;
-    box-shadow: var(--shadow);
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-  }
-  .section-header--mint {
-    background: var(--mint);
-    transform: rotate(-0.8deg);
-  }
-  .section-header--pink {
-    background: var(--pink);
-    color: white;
-    transform: rotate(0.6deg);
-  }
-  .section-header--ocean {
-    background: var(--ocean);
-    color: white;
-    transform: rotate(-0.5deg);
-  }
-  .section-header--forest {
-    background: var(--forest);
-    color: white;
-    transform: rotate(0.4deg);
-  }
-  .section-header--night {
-    background: var(--night-mid);
-    color: white;
-    transform: rotate(-0.3deg);
-  }
-  .section-header--ocean .sh-num,
-  .section-header--forest .sh-num,
-  .section-header--night .sh-num {
-    color: var(--deep);
-  }
-  .section-header .sh-num {
-    flex: 0 0 auto;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    color: var(--deep);
-    border: 3px solid var(--deep);
-    border-radius: 50%;
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    box-shadow: var(--shadow-sm);
-    transform: rotate(-5deg);
-  }
-  .section-header--pink .sh-num { transform: rotate(5deg); }
-  .section-header .sh-text {
-    font-size: clamp(1.1rem, 2.4vw, 1.45rem);
-    line-height: 1.3;
-  }
-
-  @media (max-width: 640px) {
-    .section-header { padding: 16px; gap: 12px; }
-    .section-header .sh-num { width: 44px; height: 44px; font-size: 1.4rem; }
-  }
-
-  /* Persönliche Notiz vom Schenker (innerhalb der Geheimnis-Box) */
-  .author-note {
-    display: flex;
-    align-items: flex-end;
-    gap: 12px;
-    margin: 6px 0 14px;
-  }
-  .an-avatar {
-    flex: 0 0 auto;
-    width: 56px;
-    height: 56px;
-    background: var(--yellow);
-    border: 3px solid var(--deep);
-    border-radius: 50%;
-    box-shadow: var(--shadow-sm);
-    transform: rotate(-5deg);
-    overflow: hidden;
-    align-self: flex-end;
-  }
-  .an-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .an-bubble {
-    position: relative;
-    flex: 1;
-    background: #fff8ec;
-    border: 3px solid var(--deep);
-    border-radius: 18px;
-    padding: 10px 16px;
-    box-shadow: var(--shadow-sm);
-    transform: rotate(0.3deg);
-  }
-  /* Sprechblasen-Zipfel links */
-  .an-bubble::before,
-  .an-bubble::after {
-    content: "";
+  .photo-label {
     position: absolute;
-    bottom: 8px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-  }
-  .an-bubble::before {
-    left: -14px;
-    border-width: 7px 14px 7px 0;
-    border-color: transparent var(--deep) transparent transparent;
-  }
-  .an-bubble::after {
-    left: -10px;
-    border-width: 5px 11px 5px 0;
-    border-color: transparent #fff8ec transparent transparent;
-  }
-  .personal-note .an-bubble p,
-  .an-bubble p {
-    margin: 0;
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: clamp(1.55rem, 2.6vw, 1.7rem);
-    line-height: 1.45;
-    color: var(--deep);
-  }
-
-  /* Personal Card (ersetzt Foto-Banner) */
-  .personal-card {
-    max-width: 700px;
-    margin: 0 auto 48px;
-    background: rgba(255,255,255,0.08);
-    border: 3px solid rgba(255,255,255,0.25);
-    border-radius: 24px;
-    padding: 28px 32px;
-    position: relative;
-  }
-  .pc-from {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    color: var(--yellow);
-    margin-bottom: 14px;
-    text-transform: uppercase;
-  }
-  .pc-text {
-    font-family: 'Nunito', sans-serif;
-    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
-    line-height: 1.8;
-    color: #e8f0fe;
-    font-style: italic;
-  }
-  .pc-sig {
-    text-align: right;
-    font-family: 'Caveat', cursive;
-    font-size: 1.3rem;
-    color: var(--yellow);
-    margin-top: 14px;
-  }
-
-  /* Ship scene */
-  .chart-card--ship { background: linear-gradient(180deg, #87ceeb 0%, #b0e0e6 40%, #006994 40%, #004d73 100%); }
-  .chart-card--ship::before { content: "🛳️ Klick aufs Schiff! ⚓"; }
-
-  /* Mountain scene */
-  .chart-card--mountain { background: linear-gradient(180deg, #b3d4f5 0%, #87b8e8 35%, #4a7c59 60%, #2e5e35 100%); }
-  .chart-card--mountain::before { content: "🏔️ Klick auf einen Gipfel! ❄️"; }
-
-  /* Space scene */
-  .chart-card--space {
-    background: radial-gradient(ellipse at 30% 40%, #1a237e 0%, #0d1b4b 50%, #050d1f 100%);
-  }
-  .chart-card--space::before { content: "🚀 Klick auf einen Planeten! ⭐"; color: #90caf9; }
-
-  /* Persönliche Botschaft — wie eine Glückwunschkarte */
-  .personal-note {
-    position: relative;
-    max-width: 760px;
-    margin: 50px auto 30px;
-    padding: 40px 32px 32px;
-    background:
-      radial-gradient(circle at 20% 10%, rgba(255,212,71,0.25) 0%, transparent 40%),
-      radial-gradient(circle at 85% 90%, rgba(77,223,175,0.25) 0%, transparent 40%),
-      #fff;
-    border: 4px solid var(--deep);
-    border-radius: 28px;
-    box-shadow: var(--shadow);
-    transform: rotate(-0.8deg);
-  }
-  /* kleine dekorative "Tape-Streifen" oben */
-  .personal-note::before,
-  .personal-note::after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    width: 60px;
-    height: 20px;
-    background: rgba(255, 79, 163, 0.5);
-    border: 1.5px dashed rgba(43,26,74,0.3);
-  }
-  .personal-note::before { left: 40px;  transform: rotate(-6deg); }
-  .personal-note::after  { right: 40px; transform: rotate(5deg); background: rgba(77,223,175,0.55); }
-
-  .pn-stamp {
-    position: absolute;
-    top: -22px;
+    top: 16px;
     left: 50%;
-    transform: translateX(-50%) rotate(-3deg);
-    background: var(--pink);
-    color: white;
-    padding: 8px 22px;
-    border-radius: 999px;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    border: 3px solid var(--deep);
-    box-shadow: var(--shadow-sm);
-    white-space: nowrap;
-  }
-
-  .personal-note h3 {
-    font-family: 'Fredoka', sans-serif;
-    font-size: clamp(1.5rem, 3.5vw, 2rem);
-    color: var(--deep);
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  .personal-note p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #3a2a5a;
-    margin-bottom: 14px;
-  }
-
-  .personal-note .pn-gentle {
-    font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
-    line-height: 1.4;
-    color: var(--deep);
+    transform: translateX(-50%) rotate(-2deg);
     background: var(--yellow);
-    padding: 16px 20px;
-    border: 3px solid var(--deep);
-    border-radius: 16px;
-    margin: 20px 0 10px;
-    transform: rotate(0.5deg);
-  }
-
-  .pn-signature {
-    text-align: right;
-    font-family: 'Caveat', cursive;
-    font-size: 1.3rem;
-    color: var(--purple);
-    margin-top: 10px;
-  }
-
-  /* Info-Karten unten */
-  .facts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
-    margin: 40px 0;
-  }
-
-  .fact {
-    background: white;
-    border: 3px solid var(--deep);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: var(--shadow-sm);
-    transform: rotate(var(--rot, 0deg));
-  }
-  .fact:nth-child(1) { --rot: -1.5deg; background: #fff4da; }
-  .fact:nth-child(2) { --rot: 1.2deg;  background: #e2f6ff; }
-  .fact:nth-child(3) { --rot: -0.8deg; background: #ffe6f0; }
-
-  .fact .fact-emoji { font-size: 2.4rem; display: block; margin-bottom: 6px; }
-  .fact h4 {
+    color: var(--deep);
     font-family: 'Fredoka', sans-serif;
-    font-size: 1.15rem;
-    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: clamp(1.15rem, 5vw, 1.5rem);
+    padding: 10px 22px;
+    border: 3px solid var(--deep);
+    border-radius: 50px;
+    box-shadow: 4px 4px 0 var(--deep);
+    white-space: nowrap;
+    z-index: 5;
+    animation: label-bob 3s ease-in-out infinite;
   }
-  .fact p { font-size: 0.98rem; line-height: 1.45; color: #3a2a5a; }
-
-  /* Fuß */
-  footer {
-    text-align: center;
-    padding: 20px;
-    font-family: 'Caveat', cursive;
-    font-size: 1.4rem;
-    color: var(--purple);
-    transform: rotate(-1deg);
-  }
-  footer .heart { color: var(--pink); display: inline-block; animation: beat 1.2s infinite; }
-  @keyframes beat {
-    0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.2); }
+  @keyframes label-bob {
+    0%, 100% { transform: translateX(-50%) rotate(-2deg) translateY(0); }
+    50%       { transform: translateX(-50%) rotate(-1deg) translateY(-4px); }
   }
 
-  @media (max-width: 820px) {
-    /* Tablet-Abwärts */
-    .chart-card { padding: 28px 14px 18px; }
-  }
-
-  @media (max-width: 640px) {
-    /* Mobil */
-    body { padding: 12px; }
-    .chart-card { padding: 22px 8px 14px; border-radius: 22px; }
-    .chart-card::before { font-size: 0.88rem; padding: 6px 16px; }
-    .panel { padding: 22px 18px; border-radius: 20px; }
-    .seg-label { font-size: 13px; }
-    .iq-tick { font-size: 11px; }
-
-    /* Header — Glückwunsch-Sticker bei schmalem Bildschirm etwas kleiner */
-    header { padding: 18px 4px 6px; }
-    .banner { padding: 7px 7px 10px; border-radius: 16px; transform: rotate(-0.5deg); }
-    .banner::before, .banner::after { width: 50px; height: 18px; top: -10px; }
-
-    /* Persönliche Box — weniger Padding, weniger Rotation */
-    .personal-note {
-      padding: 34px 18px 24px;
-      margin: 36px auto 24px;
-      border-radius: 22px;
-      transform: rotate(-0.3deg);
-    }
-    .personal-note::before { left: 20px; }
-    .personal-note::after  { right: 20px; }
-    .personal-note p { font-size: 1.02rem; }
-    .personal-note .pn-gentle { font-size: 1.25rem; padding: 14px 16px; }
-
-    /* Autor-Sprechblase in der Geheimnis-Box — auf Mobil nicht rotieren */
-    .author-note { gap: 10px; margin: 8px 0 14px; }
-    .an-avatar { width: 48px; height: 48px; transform: rotate(-4deg); }
-    .an-bubble { padding: 10px 14px; transform: none; }
-    .personal-note .an-bubble p,
-    .an-bubble p { font-size: 1.55rem; line-height: 1.45; }
-
-    /* Eröffnungsfrage */
-    .opening-question { padding: 12px 20px; gap: 10px; }
-
-    /* Facts — weniger Rotation & mehr Abstand */
-    .fact { padding: 18px; }
-    .fact:nth-child(1), .fact:nth-child(2), .fact:nth-child(3) {
-      transform: rotate(0deg);
-    }
-
-    /* Footer und Bridge */
-    .section-header { margin: 36px auto 16px; }
-  }
-
-  @media (max-width: 380px) {
-    /* Sehr schmale Smartphones */
-    body { padding: 10px; }
-    .chart-card::before { content: "🎯 Klick drauf! 🎨"; font-size: 0.82rem; padding: 5px 12px; }
-    .banner { padding: 6px 6px 9px; }
-    .personal-note { padding: 30px 14px 20px; }
-  }
-
-  /* Feuerwerk Canvas */
+  /* Fireworks canvas */
   #fireworks {
     position: fixed;
     inset: 0;
@@ -824,7 +125,7 @@
   }
   #fireworks.fade { opacity: 0; }
 
-  /* Cartoon plane */
+  /* Plane */
   #plane-scene {
     position: fixed;
     inset: 0;
@@ -836,9 +137,9 @@
     position: absolute;
     display: flex;
     align-items: center;
-    top: 20%;
+    top: 18%;
     left: -640px;
-    animation: plane-fly 8s linear 1.5s forwards, plane-bob 1.4s ease-in-out 1.5s infinite;
+    animation: plane-fly 8s linear 1s forwards, plane-bob 1.4s ease-in-out 1s infinite;
   }
   @keyframes plane-fly {
     0%   { left: -640px; }
@@ -846,20 +147,20 @@
   }
   @keyframes plane-bob {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50%       { transform: translateY(-22px) rotate(1.5deg); }
+    50%       { transform: translateY(-18px) rotate(1.2deg); }
   }
   .banner-flag {
     background: #fff8ec;
-    border: 3.5px solid #2b1a4a;
+    border: 3px solid var(--deep);
     border-radius: 8px;
-    padding: 12px 24px;
+    padding: 10px 20px;
     font-family: 'Fredoka', sans-serif;
-    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-size: clamp(1.2rem, 4vw, 2rem);
     font-weight: 700;
-    color: #2b1a4a;
-    box-shadow: 5px 5px 0 #2b1a4a;
+    color: var(--deep);
+    box-shadow: 4px 4px 0 var(--deep);
     white-space: nowrap;
-    animation: flag-flap 0.9s ease-in-out 1.5s infinite;
+    animation: flag-flap 0.9s ease-in-out 1s infinite;
     transform-origin: right center;
   }
   @keyframes flag-flap {
@@ -867,61 +168,18 @@
     50%       { transform: rotate(2deg) skewY(1.5deg); }
   }
   .banner-rope {
-    width: 70px;
+    width: 60px;
     height: 0;
-    border-top: 3px dashed #2b1a4a;
+    border-top: 3px dashed var(--deep);
     flex-shrink: 0;
     opacity: 0.7;
   }
   .propeller {
     transform-box: fill-box;
     transform-origin: center;
-    animation: prop-spin 0.22s linear 1.5s infinite;
+    animation: prop-spin 0.22s linear 1s infinite;
   }
-  @keyframes prop-spin {
-    to { transform: rotate(360deg); }
-  }
-
-  /* Sticker-Buttons auf dem Banner-Foto */
-  .banner-img-wrap { position: relative; display: block; }
-  @keyframes sticker-wiggle {
-    0%, 100% { transform: rotate(var(--rot, -3deg)) scale(1); }
-    25%       { transform: rotate(calc(var(--rot, -3deg) + 6deg)) scale(1.04); }
-    75%       { transform: rotate(calc(var(--rot, -3deg) - 6deg)) scale(1.04); }
-  }
-  .sticker-btn {
-    position: absolute;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 700;
-    font-size: clamp(1rem, 2.8vw, 1.2rem);
-    border: 3px solid var(--deep);
-    border-radius: 50px;
-    padding: 11px 20px;
-    cursor: pointer;
-    box-shadow: var(--shadow-sm);
-    z-index: 10;
-    white-space: nowrap;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-    animation: sticker-wiggle 1.8s ease-in-out infinite;
-  }
-  .sticker-btn:active { transform: scale(0.92) !important; }
-  .fw-sticker {
-    --rot: -3deg;
-    background: linear-gradient(135deg, var(--yellow), var(--orange));
-    color: var(--deep);
-    bottom: 14px;
-    left: 10px;
-    animation-delay: 0s;
-  }
-  .music-sticker {
-    --rot: 2deg;
-    background: linear-gradient(135deg, var(--mint), var(--blue));
-    color: var(--deep);
-    bottom: 14px;
-    right: 10px;
-    animation-delay: 0.9s;
-  }
+  @keyframes prop-spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -932,47 +190,19 @@
   <div class="plane-group">
     <div class="banner-flag">Happy Birthday, Lasse! 🎉</div>
     <div class="banner-rope"></div>
-    <!-- Cessna-style cartoon plane, facing right -->
-    <svg width="265" height="132" viewBox="0 0 265 132" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-      <!-- HIGH WING on top of fuselage (drawn first, behind fuselage) -->
-      <path d="M 100,48 L 160,48 L 172,28 L 16,36 Z"
-            fill="#a855f7" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
-
-      <!-- Wing I-struts (Cessna signature) -->
+    <svg width="200" height="100" viewBox="0 0 265 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 100,48 L 160,48 L 172,28 L 16,36 Z" fill="#a855f7" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
       <line x1="118" y1="48" x2="110" y2="95" stroke="#2b1a4a" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="145" y1="48" x2="145" y2="95" stroke="#2b1a4a" stroke-width="3.5" stroke-linecap="round"/>
-
-      <!-- Tail cone (tapers left to a point) -->
-      <path d="M 86,56 L 86,92 L 14,72 Z"
-            fill="#3aaff5" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
-
-      <!-- Main cabin/fuselage (boxy, Cessna-style) -->
-      <rect x="84" y="48" width="114" height="50" rx="8"
-            fill="#3aaff5" stroke="#2b1a4a" stroke-width="3.5"/>
-
-      <!-- Nose cowling (cylindrical engine housing) -->
-      <path d="M 196,50 L 228,50 Q 242,50 242,73 Q 242,96 228,96 L 196,96 Z"
-            fill="#4ddfaf" stroke="#2b1a4a" stroke-width="3.5" stroke-linejoin="round"/>
-      <line x1="197" y1="73" x2="241" y2="73" stroke="#2b1a4a" stroke-width="1.5" opacity="0.35"/>
-
-      <!-- Large Cessna-style cabin windows -->
-      <rect x="95" y="55" width="38" height="28" rx="5"
-            fill="#fff8ec" stroke="#2b1a4a" stroke-width="2.5"/>
-      <rect x="140" y="55" width="38" height="28" rx="5"
-            fill="#fff8ec" stroke="#2b1a4a" stroke-width="2.5"/>
+      <path d="M 86,56 L 86,92 L 14,72 Z" fill="#3aaff5" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
+      <rect x="84" y="48" width="114" height="50" rx="8" fill="#3aaff5" stroke="#2b1a4a" stroke-width="3.5"/>
+      <path d="M 196,50 L 228,50 Q 242,50 242,73 Q 242,96 228,96 L 196,96 Z" fill="#4ddfaf" stroke="#2b1a4a" stroke-width="3.5" stroke-linejoin="round"/>
+      <rect x="95" y="55" width="38" height="28" rx="5" fill="#fff8ec" stroke="#2b1a4a" stroke-width="2.5"/>
+      <rect x="140" y="55" width="38" height="28" rx="5" fill="#fff8ec" stroke="#2b1a4a" stroke-width="2.5"/>
       <rect x="99" y="59" width="11" height="9" rx="2" fill="white" opacity="0.6"/>
       <rect x="144" y="59" width="11" height="9" rx="2" fill="white" opacity="0.6"/>
-
-      <!-- Vertical tail fin (points UP from tail) -->
-      <path d="M 15,70 L 10,34 L 54,58 Z"
-            fill="#ff4fa3" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
-
-      <!-- Horizontal stabilizer (sticks left) -->
-      <path d="M 18,72 L 2,60 L 6,82 L 18,80 Z"
-            fill="#ffd447" stroke="#2b1a4a" stroke-width="2.5" stroke-linejoin="round"/>
-
-      <!-- Fixed tricycle landing gear -->
+      <path d="M 15,70 L 10,34 L 54,58 Z" fill="#ff4fa3" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M 18,72 L 2,60 L 6,82 L 18,80 Z" fill="#ffd447" stroke="#2b1a4a" stroke-width="2.5" stroke-linejoin="round"/>
       <line x1="112" y1="97" x2="106" y2="120" stroke="#2b1a4a" stroke-width="4" stroke-linecap="round"/>
       <ellipse cx="104" cy="123" rx="11" ry="6" fill="#2b1a4a"/>
       <ellipse cx="104" cy="123" rx="9" ry="4.5" fill="#555"/>
@@ -980,502 +210,39 @@
       <ellipse cx="156" cy="123" rx="11" ry="6" fill="#2b1a4a"/>
       <ellipse cx="156" cy="123" rx="9" ry="4.5" fill="#555"/>
       <line x1="106" y1="120" x2="154" y2="120" stroke="#2b1a4a" stroke-width="2" stroke-linecap="round"/>
-      <!-- Nose gear -->
       <line x1="205" y1="95" x2="204" y2="116" stroke="#2b1a4a" stroke-width="3.5" stroke-linecap="round"/>
       <ellipse cx="203" cy="119" rx="9" ry="5" fill="#2b1a4a"/>
       <ellipse cx="203" cy="119" rx="7" ry="4" fill="#555"/>
-
-      <!-- Spinning propeller -->
       <g class="propeller">
         <ellipse cx="242" cy="59" rx="4.5" ry="13" fill="#2b1a4a" opacity="0.85"/>
         <ellipse cx="242" cy="87" rx="4.5" ry="13" fill="#2b1a4a" opacity="0.85"/>
         <circle cx="242" cy="73" r="7" fill="#ffd447" stroke="#2b1a4a" stroke-width="2.5"/>
       </g>
-
     </svg>
   </div>
 </div>
 
-<div class="confetti" aria-hidden="true">
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
+<div class="buttons">
+  <button onclick="startFeuerwerk()" class="btn btn-fw">🎆 Feuerwerk!</button>
+  <button id="musik-btn" onclick="toggleMusik()" class="btn btn-music">🎵 Musik an!</button>
 </div>
 
-<div class="wrap">
-
-  <header>
-    <div class="personal-card">
-      <img src="micha_ski_star.jpeg" alt="Onkel Micha" style="display:block;width:100%;max-height:380px;border-radius:16px;object-fit:cover;object-position:center;border:3px solid rgba(255,212,71,0.8);margin-bottom:16px;box-shadow:4px 4px 0 rgba(43,26,74,0.3);">
-      <div class="pc-from">💌 Von Onkel Micha</div>
-      <p class="pc-text">
-        Lasse, heute wirst du 8 Jahre alt! Weißt du, was alle großen Entdecker gemeinsam haben?
-        Sie lieben das Weite. Das Meer, das sich bis zum Horizont erstreckt. Die Berge, die so
-        hoch sind, dass die Wolken <em>unter</em> dir liegen. Und den Nachthimmel, der flüstert:
-        <em>»Da draußen gibt es noch so viel zu entdecken.«</em>
-        <br><br>
-        Genau das bist du, Lasse: ein Entdecker. Einer, der still ist und genau hinschaut.
-        Der die Dinge wirklich sieht. Und das ist das Größte, was man sein kann. 🌍
-      </p>
-      <div class="pc-sig">— Dein Onkel Micha 🎂</div>
-    </div>
-    <h1>
-      <span class="word w1">Lasse,</span>
-      <span class="word w2">der</span>
-      <span class="word w3">Entdecker</span>
-    </h1>
-    <div class="opening-question">
-      <span class="oq-emoji">🛳️</span>
-      <p>Bereit für <b>drei große Abenteuer</b>?</p>
-      <span class="oq-emoji">🚀</span>
-    </div>
-    <p class="subtitle">
-      Das Meer, die Berge, die Sterne — drei Welten warten auf dich. Klick dich durch und entdecke die Geheimnisse, die sich dahinter verbergen… 👇
-    </p>
-    <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:18px; padding-bottom:8px;">
-      <button onclick="startFeuerwerk()" class="sticker-btn fw-sticker" style="position:relative; bottom:auto; left:auto;">🎆 Feuerwerk!</button>
-      <button id="musik-btn" onclick="toggleMusik()" class="sticker-btn music-sticker" style="position:relative; bottom:auto; right:auto;">🎵 Musik an!</button>
-    </div>
-  </header>
-
-  <!-- ===== SECTION HEADER: KREUZFAHRTSCHIFF ===== -->
-  <h2 class="section-header section-header--ocean">
-    <span class="sh-num">1</span>
-    <span class="sh-text">Stell dir vor: du stehst auf dem Deck und siehst nichts als Meer… 🛳️</span>
-  </h2>
-
-  <!-- ===== KREUZFAHRTSCHIFF ===== -->
-  <div class="chart-card chart-card--ship">
-    <div class="chart-wrap">
-      <svg id="ship-svg" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" aria-label="Kreuzfahrtschiff auf dem Meer">
-        <defs>
-          <linearGradient id="sky-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#87ceeb"/>
-            <stop offset="100%" stop-color="#b0e0e6"/>
-          </linearGradient>
-          <linearGradient id="sea-grad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#006994"/>
-            <stop offset="100%" stop-color="#004d73"/>
-          </linearGradient>
-        </defs>
-        <!-- Himmel -->
-        <rect x="0" y="0" width="900" height="230" fill="url(#sky-grad)" rx="14"/>
-        <!-- Meer -->
-        <rect x="0" y="230" width="900" height="170" fill="url(#sea-grad)"/>
-        <!-- Wellen -->
-        <path d="M 0,245 Q 90,235 180,245 Q 270,255 360,245 Q 450,235 540,245 Q 630,255 720,245 Q 810,235 900,245" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="3"/>
-        <path d="M 0,270 Q 90,260 180,270 Q 270,280 360,270 Q 450,260 540,270 Q 630,280 720,270 Q 810,260 900,270" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-        <!-- Schiffsrumpf -->
-        <path d="M 140,200 L 760,200 L 790,228 L 110,228 Z" fill="#1565c0" stroke="#0d47a1" stroke-width="3"/>
-        <!-- Aufbau (Hauptdeck) -->
-        <rect x="190" y="138" width="520" height="66" rx="6" fill="#2196f3" stroke="#0d47a1" stroke-width="3"/>
-        <!-- Brücke (oberes Deck) -->
-        <rect x="330" y="98" width="240" height="44" rx="5" fill="#1976d2" stroke="#0d47a1" stroke-width="2.5"/>
-        <!-- Schornstein 1 (klickbar → Fact 3) -->
-        <rect class="ship-part" data-ship-fact="3" x="385" y="60" width="42" height="42" rx="5"
-              fill="#ff5722" stroke="#0d47a1" stroke-width="2.5" style="cursor:pointer"/>
-        <text class="ship-part" data-ship-fact="3" x="406" y="87" text-anchor="middle"
-              font-size="18" style="cursor:pointer;">🔥</text>
-        <!-- Schornstein 2 -->
-        <rect x="462" y="65" width="36" height="36" rx="4" fill="#ff5722" stroke="#0d47a1" stroke-width="2"/>
-        <!-- Fensterreihe (klickbar → Fact 1) -->
-        <rect class="ship-part" data-ship-fact="1" x="200" y="150" width="32" height="24" rx="4"
-              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
-        <rect class="ship-part" data-ship-fact="1" x="248" y="150" width="32" height="24" rx="4"
-              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
-        <rect class="ship-part" data-ship-fact="1" x="296" y="150" width="32" height="24" rx="4"
-              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
-        <rect class="ship-part" data-ship-fact="1" x="572" y="150" width="32" height="24" rx="4"
-              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
-        <rect class="ship-part" data-ship-fact="1" x="620" y="150" width="32" height="24" rx="4"
-              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
-        <rect class="ship-part" data-ship-fact="1" x="668" y="150" width="32" height="24" rx="4"
-              fill="#e3f2fd" stroke="#0d47a1" stroke-width="2" style="cursor:pointer"/>
-        <!-- Wasser-Bereich (klickbar → Fact 2) -->
-        <text class="ship-part" data-ship-fact="2" x="60" y="270"
-              font-size="32" style="cursor:pointer;" text-anchor="middle">🌊</text>
-        <text class="ship-part" data-ship-fact="2" x="840" y="270"
-              font-size="32" style="cursor:pointer;" text-anchor="middle">🌊</text>
-        <!-- Anker (klickbar → Fact 4) -->
-        <text class="ship-part" data-ship-fact="4" x="155" y="218"
-              font-size="26" style="cursor:pointer;" text-anchor="middle">⚓</text>
-        <!-- Klick-Hinweis -->
-        <text x="450" y="390" text-anchor="middle" font-size="13"
-              fill="rgba(255,255,255,0.6)" font-family="Nunito, sans-serif">← Klick auf das Schiff! →</text>
-      </svg>
-    </div>
-  </div>
-
-  <div class="panel" id="panelShip">
-    <div class="panel-placeholder" id="placeholderShip">
-      <span class="big-emoji">🛳️</span>
-      <h3>Probier's mal aus!</h3>
-      <p>Klick auf einen Teil des Schiffes — dann verrate ich dir ein Geheimnis! 👆</p>
-    </div>
-  </div>
-  <!-- ===== SECTION HEADER: BERGE ===== -->
-  <h2 class="section-header section-header--forest">
-    <span class="sh-num">2</span>
-    <span class="sh-text">Wenn du auf einem Gipfel stehst, liegen die Wolken unter dir… 🏔️</span>
-  </h2>
-
-  <!-- ===== BERGPANORAMA ===== -->
-  <div class="chart-card chart-card--mountain">
-    <div class="chart-wrap">
-      <svg id="mountain-svg" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" aria-label="Bergpanorama mit klickbaren Gipfeln">
-        <defs>
-          <linearGradient id="mtn-sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#b3d4f5"/>
-            <stop offset="100%" stop-color="#87b8e8"/>
-          </linearGradient>
-        </defs>
-        <!-- Himmel -->
-        <rect x="0" y="0" width="900" height="300" fill="url(#mtn-sky)" rx="14"/>
-        <!-- Hintergrund-Berge -->
-        <polygon points="0,300 120,180 240,300" fill="#7a9ab0" opacity="0.5"/>
-        <polygon points="700,300 820,170 900,300" fill="#7a9ab0" opacity="0.5"/>
-        <polygon points="600,300 750,150 900,300" fill="#8aabb8" opacity="0.4"/>
-        <!-- Wiese -->
-        <rect x="0" y="300" width="900" height="100" fill="#2e5e35"/>
-        <path d="M 0,300 Q 150,290 300,300 Q 450,310 600,300 Q 750,290 900,300" fill="#3a7040"/>
-        <!-- Mont Blanc (klickbar) -->
-        <polygon class="mtn-peak" data-mtn-fact="montblanc"
-                 points="60,300 220,95 380,300"
-                 fill="#5d7a61" stroke="#2b1a4a" stroke-width="2" stroke-linejoin="round"
-                 style="cursor:pointer"/>
-        <polygon points="220,95 185,155 255,155" fill="white" opacity="0.9"/>
-        <!-- Mount Everest (klickbar) -->
-        <polygon class="mtn-peak" data-mtn-fact="everest"
-                 points="310,300 490,40 670,300"
-                 fill="#4a6741" stroke="#2b1a4a" stroke-width="2.5" stroke-linejoin="round"
-                 style="cursor:pointer"/>
-        <polygon points="490,40 450,105 530,105" fill="white" opacity="0.92"/>
-        <!-- Zugspitze (klickbar) -->
-        <polygon class="mtn-peak" data-mtn-fact="zugspitze"
-                 points="560,300 710,120 860,300"
-                 fill="#567a5a" stroke="#2b1a4a" stroke-width="2" stroke-linejoin="round"
-                 style="cursor:pointer"/>
-        <polygon points="710,120 685,168 735,168" fill="white" opacity="0.88"/>
-        <!-- Labels -->
-        <text x="220" y="88" text-anchor="middle" font-family="Fredoka, sans-serif"
-              font-size="13" font-weight="700" fill="#0d47a1">Mont Blanc ▲</text>
-        <text x="490" y="32" text-anchor="middle" font-family="Fredoka, sans-serif"
-              font-size="14" font-weight="700" fill="#0d47a1">Mt. Everest ▲</text>
-        <text x="710" y="113" text-anchor="middle" font-family="Fredoka, sans-serif"
-              font-size="13" font-weight="700" fill="#0d47a1">Zugspitze ▲</text>
-        <!-- Klick-Hinweis -->
-        <text x="450" y="390" text-anchor="middle" font-size="13"
-              fill="rgba(255,255,255,0.7)" font-family="Nunito, sans-serif">← Klick auf einen Gipfel! →</text>
-      </svg>
-    </div>
-  </div>
-
-  <div class="panel" id="panelMountain">
-    <div class="panel-placeholder" id="placeholderMountain">
-      <span class="big-emoji">🏔️</span>
-      <h3>Probier's mal aus!</h3>
-      <p>Klick auf einen Berggipfel — ich verrate dir seine Geheimnisse! 👆</p>
-    </div>
-  </div>
-  <!-- ===== SECTION HEADER: WELTRAUM ===== -->
-  <h2 class="section-header section-header--night">
-    <span class="sh-num">3</span>
-    <span class="sh-text">Manchmal, wenn du vom Schiff aus in den Himmel schaust — siehst du sie alle… 🚀</span>
-  </h2>
-
-  <!-- ===== WELTRAUM ===== -->
-  <div class="chart-card chart-card--space">
-    <div class="chart-wrap">
-      <svg id="space-svg" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" aria-label="Sternenhimmel mit Planeten">
-        <defs>
-          <radialGradient id="space-bg" cx="30%" cy="40%">
-            <stop offset="0%" stop-color="#1a237e"/>
-            <stop offset="50%" stop-color="#0d1b4b"/>
-            <stop offset="100%" stop-color="#050d1f"/>
-          </radialGradient>
-          <radialGradient id="earth-grad" cx="35%" cy="35%">
-            <stop offset="0%" stop-color="#81d4fa"/>
-            <stop offset="100%" stop-color="#0277bd"/>
-          </radialGradient>
-          <radialGradient id="moon-grad" cx="35%" cy="35%">
-            <stop offset="0%" stop-color="#ffcc80"/>
-            <stop offset="100%" stop-color="#e65100"/>
-          </radialGradient>
-          <radialGradient id="sun-grad" cx="35%" cy="35%">
-            <stop offset="0%" stop-color="#fff176"/>
-            <stop offset="100%" stop-color="#f57f17"/>
-          </radialGradient>
-          <radialGradient id="mars-grad" cx="35%" cy="35%">
-            <stop offset="0%" stop-color="#ef9a9a"/>
-            <stop offset="100%" stop-color="#c62828"/>
-          </radialGradient>
-        </defs>
-        <!-- Hintergrund -->
-        <rect x="0" y="0" width="900" height="400" fill="url(#space-bg)" rx="14"/>
-        <!-- Sterne -->
-        <circle cx="50" cy="30" r="1.5" fill="white" opacity="0.9"/>
-        <circle cx="120" cy="80" r="1" fill="white" opacity="0.7"/>
-        <circle cx="200" cy="20" r="2" fill="#ffd447" opacity="0.8"/>
-        <circle cx="300" cy="60" r="1.5" fill="white" opacity="0.6"/>
-        <circle cx="400" cy="15" r="1" fill="white" opacity="0.9"/>
-        <circle cx="500" cy="45" r="2" fill="#ffd447" opacity="0.7"/>
-        <circle cx="600" cy="25" r="1.5" fill="white" opacity="0.8"/>
-        <circle cx="700" cy="70" r="1" fill="white" opacity="0.6"/>
-        <circle cx="800" cy="30" r="2" fill="white" opacity="0.9"/>
-        <circle cx="860" cy="90" r="1.5" fill="#ffd447" opacity="0.7"/>
-        <circle cx="150" cy="150" r="1" fill="white" opacity="0.5"/>
-        <circle cx="750" cy="120" r="1.5" fill="white" opacity="0.6"/>
-        <circle cx="650" cy="160" r="1" fill="white" opacity="0.8"/>
-        <circle cx="50" cy="200" r="1.5" fill="white" opacity="0.4"/>
-        <circle cx="850" cy="180" r="1" fill="white" opacity="0.7"/>
-        <!-- Rakete -->
-        <text x="680" y="120" font-size="36" transform="rotate(-45, 680, 120)"
-              style="animation: rocketFly 6s ease-in-out infinite;">🚀</text>
-        <!-- Erde (klickbar) -->
-        <circle class="planet" data-space-fact="earth"
-                cx="160" cy="260" r="52"
-                fill="url(#earth-grad)" stroke="rgba(255,255,255,0.3)" stroke-width="2"
-                style="cursor:pointer; filter: drop-shadow(0 0 12px rgba(100,181,246,0.5));"/>
-        <text x="160" y="325" text-anchor="middle" font-family="Fredoka, sans-serif"
-              font-size="14" font-weight="700" fill="#90caf9">Erde</text>
-        <!-- Mond (klickbar) -->
-        <circle class="planet" data-space-fact="moon"
-                cx="320" cy="280" r="32"
-                fill="url(#moon-grad)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"
-                style="cursor:pointer; filter: drop-shadow(0 0 8px rgba(255,152,0,0.4));"/>
-        <text x="320" y="323" text-anchor="middle" font-family="Fredoka, sans-serif"
-              font-size="13" font-weight="700" fill="#ffcc80">Mond</text>
-        <!-- Sonne (klickbar) -->
-        <circle class="planet" data-space-fact="sun"
-                cx="520" cy="240" r="68"
-                fill="url(#sun-grad)" stroke="rgba(255,255,255,0.2)" stroke-width="2"
-                style="cursor:pointer; filter: drop-shadow(0 0 20px rgba(255,235,59,0.6));"/>
-        <text x="520" y="323" text-anchor="middle" font-family="Fredoka, sans-serif"
-              font-size="14" font-weight="700" fill="#fff176">Sonne</text>
-        <!-- Mars (klickbar) -->
-        <circle class="planet" data-space-fact="mars"
-                cx="730" cy="270" r="40"
-                fill="url(#mars-grad)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"
-                style="cursor:pointer; filter: drop-shadow(0 0 10px rgba(244,67,54,0.4));"/>
-        <text x="730" y="323" text-anchor="middle" font-family="Fredoka, sans-serif"
-              font-size="13" font-weight="700" fill="#ef9a9a">Mars</text>
-        <!-- Klick-Hinweis -->
-        <text x="450" y="390" text-anchor="middle" font-size="13"
-              fill="rgba(255,255,255,0.5)" font-family="Nunito, sans-serif">← Klick auf einen Planeten! →</text>
-      </svg>
-    </div>
-  </div>
-
-  <div class="panel" id="panelSpace">
-    <div class="panel-placeholder" id="placeholderSpace">
-      <span class="big-emoji">🌌</span>
-      <h3>Probier's mal aus!</h3>
-      <p>Klick auf einen Planeten — ich verrate dir sein Geheimnis! 👆</p>
-    </div>
-  </div>
-
-  <!-- Abschluss-Botschaft für Lasse -->
-  <div class="facts">
-    <div class="fact">
-      <span class="fact-emoji">🛳️</span>
-      <h4>Das Meer ruft!</h4>
-      <p>Wer auf einem Kreuzfahrtschiff fährt, sieht täglich neue Länder, neue Küsten, neue Horizonte. Jeder Sonnenaufgang auf dem Meer ist anders — kein einziger gleicht dem anderen. 🌅</p>
-    </div>
-    <div class="fact">
-      <span class="fact-emoji">🏔️</span>
-      <h4>Berge lehren Geduld</h4>
-      <p>Ein Gipfel wartet. Er läuft nicht weg. Wer ruhig ist und einen Schritt nach dem anderen macht — der kommt irgendwann ganz oben an. So wie du, Lasse. 💚</p>
-    </div>
-    <div class="fact">
-      <span class="fact-emoji">🚀</span>
-      <h4>Die Sterne gehören dir</h4>
-      <p>Jeder Astronaut hat mal als kleines Kind in den Nachthimmel geschaut und geträumt. Träume groß, Lasse — die Welt da draußen ist wirklich so riesig und wunderschön, wie du dir vorstellst. ⭐</p>
-    </div>
-  </div>
-
-  <footer>
-    Mit ganz viel <span class="heart">💖</span> zum 8. Geburtstag für Lasse gemacht — von Onkel Micha 🎂
-  </footer>
-
+<div class="photo-wrap">
+  <div class="photo-label">🎂 Happy Birthday, Lasse!</div>
+  <img src="lasse.jpg" alt="Lasse">
 </div>
+
+<audio id="musik" src="song_lasse.mp3" preload="none"></audio>
 
 <script>
-  // ===== Schiff-Facts =====
-  const shipFacts = {
-    1: {
-      emoji: '🛳️ 🛳️ 🛳️',
-      badge: 'Die Größe',
-      color: '#006064',
-      title: 'Riesenschiff!',
-      text: 'Die "Symphony of the Seas" ist <b>362 Meter lang</b> — das sind fast <span class="percent">4 Fußballfelder</span> hintereinander! An Bord leben bis zu 8.000 Menschen gleichzeitig. Eine schwimmende Stadt!'
-    },
-    2: {
-      emoji: '🌊 🐋 🌊',
-      badge: 'Das Meer',
-      color: '#0277bd',
-      title: 'So viel Wasser!',
-      text: 'Die Ozeane bedecken <b>71% der Erde</b> — mehr als die Hälfte unseres Planeten ist Wasser! Und der tiefste Punkt, der Marianengraben, ist <span class="percent">11 Kilometer tief</span>. Dort war noch fast kein Mensch.'
-    },
-    3: {
-      emoji: '⚓ 🐘 ⚓',
-      badge: 'Der Anker',
-      color: '#ff5722',
-      title: 'So schwer!',
-      text: 'Ein Kreuzfahrtschiff-Anker wiegt bis zu <b>14 Tonnen</b> — so schwer wie <span class="percent">3 Elefanten</span>! Wenn das Schiff ankert, hält dieser Anker es fest, damit es nicht davontreibt.'
-    },
-    4: {
-      emoji: '🧭 ⭐ 🧭',
-      badge: 'Navigation',
-      color: '#006064',
-      title: 'Nach den Sternen!',
-      text: 'Früher fuhren Seefahrer nach den Sternen — vor allem nach dem <b>Polarstern</b>, der immer genau nach Norden zeigt. Heute macht das ein Computer. Aber die Sterne zeigen <span class="percent">immer noch den Weg.</span>'
-    }
-  };
-
-  // ===== Berg-Facts =====
-  const mountainFacts = {
-    montblanc: {
-      emoji: '🇫🇷 🏔️ 🇮🇹',
-      badge: 'Mont Blanc · 4.808 m',
-      color: '#2e7d32',
-      title: 'König der Alpen!',
-      text: 'Der Mont Blanc ist <b>4.808 Meter hoch</b> — der höchste Berg der Alpen. Von oben siehst du gleichzeitig <span class="percent">Frankreich, Italien und die Schweiz</span>. Er liegt genau auf der Grenze!'
-    },
-    everest: {
-      emoji: '🏔️ 🌏 🏔️',
-      badge: 'Mount Everest · 8.849 m',
-      color: '#1b5e20',
-      title: 'Dach der Welt!',
-      text: 'Der Mount Everest ist mit <b>8.849 Metern</b> der höchste Berg der Welt. Oben ist es so kalt wie eine Tiefkühltruhe — nur <span class="percent">viel kälter: bis −60°C</span>! Und die Luft ist so dünn, dass man kaum atmen kann.'
-    },
-    zugspitze: {
-      emoji: '🇩🇪 🚡 🇩🇪',
-      badge: 'Zugspitze · 2.962 m',
-      color: '#388e3c',
-      title: 'Deutschlands Dach!',
-      text: 'Die Zugspitze ist mit <b>2.962 Metern</b> der höchste Berg Deutschlands. Mit der <span class="percent">Seilbahn kommt man in 10 Minuten</span> ganz nach oben — und schaut von dort auf Deutschland, Österreich und Italien hinunter!'
-    }
-  };
-
-  // ===== Weltraum-Facts =====
-  const spaceFacts = {
-    earth: {
-      emoji: '🌍 🌏 🌎',
-      badge: 'Die Erde',
-      color: '#0277bd',
-      title: 'Unsere blaue Murmel!',
-      text: 'Von oben sieht die Erde aus wie eine <b>blaue Murmel</b> im Dunkeln. Astronauten nennen das den "Overview Effect" — und werden dabei ganz still. Sie sagen: <span class="percent">Man sieht keine Grenzen zwischen Ländern</span>. Nur einen wunderschönen blauen Planeten.'
-    },
-    moon: {
-      emoji: '🌙 🚀 🌙',
-      badge: 'Der Mond · 384.000 km',
-      color: '#e65100',
-      title: 'Unser Nachbar!',
-      text: 'Der Mond ist <b>384.000 Kilometer</b> von uns entfernt — das sind <span class="percent">10 Reisen rund um die Erde</span>! Apollo 11 brauchte 4 Tage, um dort anzukommen. Neil Armstrong war 1969 der erste Mensch auf dem Mond.'
-    },
-    sun: {
-      emoji: '☀️ 🌞 ☀️',
-      badge: 'Die Sonne · 150 Mio. km',
-      color: '#d2691e',
-      title: 'Riesenball aus Feuer!',
-      text: 'Die Sonne ist so riesig, dass <b>1,3 Millionen Erden</b> hineinpassen würden! Ihr Licht braucht <span class="percent">8 Minuten</span>, um zu uns zu kommen. Wenn die Sonne plötzlich erlöschen würde, würden wir es erst 8 Minuten später merken.'
-    },
-    mars: {
-      emoji: '🔴 🚀 👨‍🚀',
-      badge: 'Der Mars',
-      color: '#c62828',
-      title: 'Das nächste Ziel!',
-      text: 'Vielleicht landet der <b>erste Mensch auf dem Mars</b>, wenn Lasse erwachsen ist. Der Rote Planet hat Berge, die <span class="percent">dreimal so hoch wie der Everest</span> sind! Vielleicht sogar Lasse selbst? 🚀'
-    }
-  };
-
-  // Hilfsfunktion: Panel befüllen
-  function fillPanel(panelEl, d) {
-    panelEl.innerHTML = `
-      <div class="panel-content">
-        <div class="emoji-row">${d.emoji}</div>
-        <span class="panel-badge" style="background:${d.color}; color:white;">
-          ${d.badge}
-        </span>
-        <h2>${d.title}</h2>
-        <p>${d.text}</p>
-      </div>
-    `;
-  }
-
-  function scrollToPanel(panelEl) {
-    const rect = panelEl.getBoundingClientRect();
-    if (rect.top < 0 || rect.bottom > window.innerHeight) {
-      panelEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }
-
-  // Schiff-Handler
-  document.querySelectorAll('.ship-part').forEach(el => {
-    el.addEventListener('click', () => {
-      const factId = el.dataset.shipFact;
-      const d = shipFacts[factId];
-      if (!d) return;
-      document.querySelectorAll('.ship-part').forEach(p => p.style.opacity = '0.5');
-      document.querySelectorAll(`[data-ship-fact="${factId}"]`).forEach(p => p.style.opacity = '1');
-      const panel = document.getElementById('panelShip');
-      fillPanel(panel, d);
-      scrollToPanel(panel);
-    });
-    el.setAttribute('tabindex', '0');
-    el.setAttribute('role', 'button');
-    el.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
-    });
-  });
-
-  // Berg-Handler
-  document.querySelectorAll('.mtn-peak').forEach(el => {
-    el.addEventListener('click', () => {
-      const factId = el.dataset.mtnFact;
-      const d = mountainFacts[factId];
-      if (!d) return;
-      document.querySelectorAll('.mtn-peak').forEach(p => p.style.opacity = '0.5');
-      el.style.opacity = '1';
-      const panel = document.getElementById('panelMountain');
-      fillPanel(panel, d);
-      scrollToPanel(panel);
-    });
-    el.setAttribute('tabindex', '0');
-    el.setAttribute('role', 'button');
-    el.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
-    });
-  });
-
-  // Planeten-Handler
-  document.querySelectorAll('.planet').forEach(el => {
-    el.addEventListener('click', () => {
-      const factId = el.dataset.spaceFact;
-      const d = spaceFacts[factId];
-      if (!d) return;
-      document.querySelectorAll('.planet').forEach(p => p.style.opacity = '0.5');
-      el.style.opacity = '1';
-      const panel = document.getElementById('panelSpace');
-      fillPanel(panel, d);
-      scrollToPanel(panel);
-    });
-    el.setAttribute('tabindex', '0');
-    el.setAttribute('role', 'button');
-    el.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
-    });
-  });
-
-  // ===== Großes Feuerwerk beim Seitenaufruf =====
   let _fwRunning = false;
   function startFeuerwerk() {
     if (_fwRunning) return;
     _fwRunning = true;
-    // Restart plane animation
     const planeGroup = document.querySelector('.plane-group');
     if (planeGroup) {
       planeGroup.style.animation = 'none';
-      void planeGroup.offsetWidth; // force reflow
+      void planeGroup.offsetWidth;
       planeGroup.style.animation = '';
     }
     const existing = document.getElementById('fireworks');
@@ -1487,179 +254,116 @@
     const ctx = canvas.getContext('2d');
     let W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
     function resize() {
-      W = window.innerWidth;
-      H = window.innerHeight;
-      canvas.width = W * dpr;
-      canvas.height = H * dpr;
-      canvas.style.width = W + 'px';
-      canvas.style.height = H + 'px';
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resize();
     window.addEventListener('resize', resize);
-
     const COLORS = [
-      [255, 79, 163],   // pink
-      [168, 85, 247],   // purple
-      [58, 175, 245],   // blue
-      [77, 223, 175],   // mint
-      [255, 212, 71],   // yellow
-      [255, 140, 66],   // orange
-      [255, 94, 94],    // red
-      [255, 255, 255]   // white sparkle
+      [255,79,163],[168,85,247],[58,175,245],
+      [77,223,175],[255,212,71],[255,140,66],
+      [255,94,94],[255,255,255]
     ];
-
-    const rockets = [];
-    const particles = [];
-
+    const rockets = [], particles = [];
     function playBoom(isMega) {
       try {
-        const now = audioCtx.currentTime;
-        const thumpDur = isMega ? 0.65 : 0.4;
-        const thump = audioCtx.createOscillator();
-        const thumpGain = audioCtx.createGain();
-        thump.frequency.setValueAtTime(isMega ? 65 : 85, now);
-        thump.frequency.exponentialRampToValueAtTime(22, now + thumpDur);
-        thumpGain.gain.setValueAtTime(isMega ? 0.55 : 0.35, now);
-        thumpGain.gain.exponentialRampToValueAtTime(0.001, now + thumpDur);
-        thump.connect(thumpGain);
-        thumpGain.connect(audioCtx.destination);
-        thump.start(now);
-        thump.stop(now + thumpDur);
-        const crackleDur = isMega ? 0.45 : 0.28;
-        const samples = Math.floor(audioCtx.sampleRate * crackleDur);
+        const now = audioCtx.currentTime, dur = isMega ? 0.65 : 0.4;
+        const osc = audioCtx.createOscillator(), g = audioCtx.createGain();
+        osc.frequency.setValueAtTime(isMega ? 65 : 85, now);
+        osc.frequency.exponentialRampToValueAtTime(22, now + dur);
+        g.gain.setValueAtTime(isMega ? 0.55 : 0.35, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + dur);
+        osc.connect(g); g.connect(audioCtx.destination);
+        osc.start(now); osc.stop(now + dur);
+        const cd = isMega ? 0.45 : 0.28;
+        const samples = Math.floor(audioCtx.sampleRate * cd);
         const buf = audioCtx.createBuffer(1, samples, audioCtx.sampleRate);
         const data = buf.getChannelData(0);
         for (let i = 0; i < samples; i++) data[i] = Math.random() * 2 - 1;
-        const noise = audioCtx.createBufferSource();
-        noise.buffer = buf;
+        const noise = audioCtx.createBufferSource(); noise.buffer = buf;
         const filter = audioCtx.createBiquadFilter();
-        filter.type = 'bandpass';
-        filter.frequency.value = 900;
-        filter.Q.value = 0.7;
-        const noiseGain = audioCtx.createGain();
-        noiseGain.gain.setValueAtTime(isMega ? 0.3 : 0.18, now);
-        noiseGain.gain.exponentialRampToValueAtTime(0.001, now + crackleDur);
-        noise.connect(filter);
-        filter.connect(noiseGain);
-        noiseGain.connect(audioCtx.destination);
-        noise.start(now);
-        noise.stop(now + crackleDur);
+        filter.type = 'bandpass'; filter.frequency.value = 900; filter.Q.value = 0.7;
+        const ng = audioCtx.createGain();
+        ng.gain.setValueAtTime(isMega ? 0.3 : 0.18, now);
+        ng.gain.exponentialRampToValueAtTime(0.001, now + cd);
+        noise.connect(filter); filter.connect(ng); ng.connect(audioCtx.destination);
+        noise.start(now); noise.stop(now + cd);
       } catch(e) {}
     }
-
     class Rocket {
       constructor(x, targetY, color) {
-        this.x = x;
-        this.y = H + 10;
-        this.targetY = targetY;
+        this.x = x; this.y = H + 10; this.targetY = targetY;
         this.vy = -(10 + Math.random() * 4);
-        this.color = color;
-        this.trail = [];
-        this.dead = false;
+        this.color = color; this.trail = []; this.dead = false;
       }
       update() {
-        this.trail.push({ x: this.x, y: this.y, life: 1 });
+        this.trail.push({x: this.x, y: this.y});
         if (this.trail.length > 14) this.trail.shift();
-        this.y += this.vy;
-        this.vy += 0.12;
-        if (this.vy >= 0 || this.y <= this.targetY) {
-          this.explode();
-          this.dead = true;
-        }
+        this.y += this.vy; this.vy += 0.12;
+        if (this.vy >= 0 || this.y <= this.targetY) { this.explode(); this.dead = true; }
       }
       explode() {
         const isMega = Math.random() < 0.35;
         playBoom(isMega);
         const count = (isMega ? 320 : 200) + Math.floor(Math.random() * 180);
-        const baseColor = this.color;
-        const ringSpeed = (isMega ? 11 : 8) + Math.random() * 5;
-        // chaotic primary burst — wildly varying speeds, multi-color
+        const rs = (isMega ? 11 : 8) + Math.random() * 5;
         for (let i = 0; i < count; i++) {
-          const angle = Math.random() * Math.PI * 2;
-          const speed = ringSpeed * (0.15 + Math.pow(Math.random(), 0.6) * 1.6);
-          const c = Math.random() < 0.5
-            ? COLORS[Math.floor(Math.random() * COLORS.length)]
-            : baseColor;
-          particles.push(new Particle(this.x, this.y, Math.cos(angle) * speed, Math.sin(angle) * speed, c, false, isMega));
-        }
-        // secondary ring — fast outer shock
-        const ringCount = 60 + Math.floor(Math.random() * 40);
-        const ring = ringSpeed * 1.6;
-        for (let i = 0; i < ringCount; i++) {
-          const angle = (Math.PI * 2 * i) / ringCount + (Math.random() - 0.5) * 0.4;
-          const speed = ring * (0.85 + Math.random() * 0.5);
-          const c = COLORS[Math.floor(Math.random() * COLORS.length)];
-          particles.push(new Particle(this.x, this.y, Math.cos(angle) * speed, Math.sin(angle) * speed, c, false, true));
-        }
-        // dense sparkle layer
-        for (let i = 0; i < 120; i++) {
           const a = Math.random() * Math.PI * 2;
-          const s = Math.random() * ringSpeed * 1.2;
-          particles.push(new Particle(this.x, this.y, Math.cos(a) * s, Math.sin(a) * s, [255, 255, 255], true));
+          const s = rs * (0.15 + Math.pow(Math.random(), 0.6) * 1.6);
+          const c = Math.random() < 0.5 ? COLORS[Math.floor(Math.random() * COLORS.length)] : this.color;
+          particles.push(new Particle(this.x, this.y, Math.cos(a)*s, Math.sin(a)*s, c, false, isMega));
         }
-        // chained mini-bursts — chaotic side explosions
+        const rc = 60 + Math.floor(Math.random() * 40), ring = rs * 1.6;
+        for (let i = 0; i < rc; i++) {
+          const a = (Math.PI * 2 * i) / rc + (Math.random() - 0.5) * 0.4;
+          const s = ring * (0.85 + Math.random() * 0.5);
+          particles.push(new Particle(this.x, this.y, Math.cos(a)*s, Math.sin(a)*s, COLORS[Math.floor(Math.random()*COLORS.length)], false, true));
+        }
+        for (let i = 0; i < 120; i++) {
+          const a = Math.random() * Math.PI * 2, s = Math.random() * rs * 1.2;
+          particles.push(new Particle(this.x, this.y, Math.cos(a)*s, Math.sin(a)*s, [255,255,255], true));
+        }
         if (isMega) {
           const sub = 2 + Math.floor(Math.random() * 3);
           for (let s = 0; s < sub; s++) {
-            const a = Math.random() * Math.PI * 2;
-            const d = 30 + Math.random() * 80;
-            const cx = this.x + Math.cos(a) * d;
-            const cy = this.y + Math.sin(a) * d;
-            const subColor = COLORS[Math.floor(Math.random() * COLORS.length)];
-            const subCount = 60 + Math.floor(Math.random() * 60);
-            const subSpeed = 4 + Math.random() * 3;
-            for (let i = 0; i < subCount; i++) {
-              const ang = Math.random() * Math.PI * 2;
-              const sp = subSpeed * (0.3 + Math.random() * 1.2);
-              particles.push(new Particle(cx, cy, Math.cos(ang) * sp, Math.sin(ang) * sp, subColor));
+            const a = Math.random() * Math.PI * 2, d = 30 + Math.random() * 80;
+            const cx = this.x + Math.cos(a) * d, cy = this.y + Math.sin(a) * d;
+            const sc = COLORS[Math.floor(Math.random() * COLORS.length)];
+            const sn = 60 + Math.floor(Math.random() * 60), ss = 4 + Math.random() * 3;
+            for (let i = 0; i < sn; i++) {
+              const ang = Math.random() * Math.PI * 2, sp = ss * (0.3 + Math.random() * 1.2);
+              particles.push(new Particle(cx, cy, Math.cos(ang)*sp, Math.sin(ang)*sp, sc));
             }
           }
         }
       }
       draw() {
         for (let i = 0; i < this.trail.length; i++) {
-          const t = this.trail[i];
-          const alpha = (i / this.trail.length) * 0.9;
+          const t = this.trail[i], alpha = (i / this.trail.length) * 0.9;
           ctx.beginPath();
           ctx.fillStyle = `rgba(${this.color[0]},${this.color[1]},${this.color[2]},${alpha})`;
-          ctx.arc(t.x, t.y, 2.4, 0, Math.PI * 2);
-          ctx.fill();
+          ctx.arc(t.x, t.y, 2.4, 0, Math.PI * 2); ctx.fill();
         }
         ctx.beginPath();
         ctx.fillStyle = `rgba(${this.color[0]},${this.color[1]},${this.color[2]},1)`;
-        ctx.arc(this.x, this.y, 3.2, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.arc(this.x, this.y, 3.2, 0, Math.PI * 2); ctx.fill();
       }
     }
-
     class Particle {
       constructor(x, y, vx, vy, color, sparkle = false, big = false) {
-        this.x = x;
-        this.y = y;
-        this.vx = vx;
-        this.vy = vy;
-        this.color = color;
-        this.life = 1;
-        this.decay = 0.006 + Math.random() * 0.018;
-        this.size = sparkle
-          ? 1.6 + Math.random() * 0.8
-          : (big ? 3.5 : 2.8) + Math.random() * 2.2;
-        this.sparkle = sparkle;
-        // chaotic per-particle wobble
-        this.wobble = (Math.random() - 0.5) * 0.18;
+        this.x = x; this.y = y; this.vx = vx; this.vy = vy; this.color = color;
+        this.life = 1; this.decay = 0.006 + Math.random() * 0.018;
+        this.size = sparkle ? 1.6 + Math.random() * 0.8 : (big ? 3.5 : 2.8) + Math.random() * 2.2;
+        this.sparkle = sparkle; this.wobble = (Math.random() - 0.5) * 0.18;
       }
       update() {
-        this.vy += 0.05;                 // gravity
-        this.vx *= 0.985;                // air drag
-        this.vy *= 0.985;
-        this.vx += this.wobble * (Math.random() - 0.5) * 2;  // jitter
+        this.vy += 0.05; this.vx *= 0.985; this.vy *= 0.985;
+        this.vx += this.wobble * (Math.random() - 0.5) * 2;
         this.vy += this.wobble * (Math.random() - 0.5) * 2;
-        this.x += this.vx;
-        this.y += this.vy;
-        this.life -= this.decay;
+        this.x += this.vx; this.y += this.vy; this.life -= this.decay;
       }
       draw() {
         if (this.life <= 0) return;
@@ -1667,57 +371,38 @@
         const flicker = this.sparkle ? (0.5 + Math.random() * 0.5) : 1;
         ctx.beginPath();
         ctx.fillStyle = `rgba(${this.color[0]},${this.color[1]},${this.color[2]},${a * flicker})`;
-        ctx.arc(this.x, this.y, this.size * a, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.arc(this.x, this.y, this.size * a, 0, Math.PI * 2); ctx.fill();
       }
     }
-
     function launchRocket() {
       const margin = Math.min(W * 0.08, 60);
-      const x = margin + Math.random() * (W - margin * 2);
-      const targetY = H * (0.1 + Math.random() * 0.4);
-      const color = COLORS[Math.floor(Math.random() * (COLORS.length - 1))]; // skip pure white
-      rockets.push(new Rocket(x, targetY, color));
+      rockets.push(new Rocket(
+        margin + Math.random() * (W - margin * 2),
+        H * (0.1 + Math.random() * 0.4),
+        COLORS[Math.floor(Math.random() * (COLORS.length - 1))]
+      ));
     }
-
-    // Chaotic schedule — overlapping bursts, irregular timing
-    const totalRockets = 28;
-    for (let i = 0; i < totalRockets; i++) {
+    for (let i = 0; i < 28; i++) {
       const delay = 150 + i * 180 + Math.random() * 280;
       setTimeout(launchRocket, delay);
-      // occasional double/triple launch
-      if (Math.random() < 0.35) {
-        setTimeout(launchRocket, delay + Math.random() * 120);
-      }
-      if (Math.random() < 0.15) {
-        setTimeout(launchRocket, delay + Math.random() * 200);
-      }
+      if (Math.random() < 0.35) setTimeout(launchRocket, delay + Math.random() * 120);
+      if (Math.random() < 0.15) setTimeout(launchRocket, delay + Math.random() * 200);
     }
-    // Mega finale — 12 rockets in a chaotic wave
     setTimeout(() => {
-      for (let i = 0; i < 12; i++) {
-        setTimeout(launchRocket, i * 60 + Math.random() * 100);
-      }
+      for (let i = 0; i < 12; i++) setTimeout(launchRocket, i * 60 + Math.random() * 100);
     }, 5800);
-
     let stopAt = performance.now() + 11000;
-    let running = true;
-
     function frame() {
       ctx.clearRect(0, 0, W, H);
-
       for (let i = rockets.length - 1; i >= 0; i--) {
-        rockets[i].update();
-        rockets[i].draw();
+        rockets[i].update(); rockets[i].draw();
         if (rockets[i].dead) rockets.splice(i, 1);
       }
       for (let i = particles.length - 1; i >= 0; i--) {
-        particles[i].update();
-        particles[i].draw();
+        particles[i].update(); particles[i].draw();
         if (particles[i].life <= 0) particles.splice(i, 1);
       }
-
-      if (running && (performance.now() < stopAt || rockets.length || particles.length)) {
+      if (performance.now() < stopAt || rockets.length || particles.length) {
         requestAnimationFrame(frame);
       } else {
         canvas.classList.add('fade');
@@ -1729,21 +414,14 @@
     requestAnimationFrame(frame);
   }
 
-  // ===== Musik Start/Stop =====
   function toggleMusik() {
     const audio = document.getElementById('musik');
     const btn = document.getElementById('musik-btn');
     if (!audio) return;
-    if (audio.paused) {
-      audio.play();
-      if (btn) btn.textContent = '🎵 Musik aus!';
-    } else {
-      audio.pause();
-      if (btn) btn.textContent = '🎵 Musik an!';
-    }
+    if (audio.paused) { audio.play(); if (btn) btn.textContent = '🎵 Musik aus!'; }
+    else              { audio.pause(); if (btn) btn.textContent = '🎵 Musik an!'; }
   }
 </script>
 
-<audio id="musik" src="song.mp3" preload="none"></audio>
 </body>
 </html>
