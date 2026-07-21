@@ -110,6 +110,42 @@
     0%, 100% { transform: rotate(-2deg) translateY(0); }
     50%       { transform: rotate(-1deg) translateY(-4px); }
   }
+  .joke-card {
+    margin: 18px auto 0;
+    max-width: 420px;
+    background: var(--cream);
+    color: var(--deep);
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    line-height: 1.4;
+    text-align: center;
+    padding: 16px 22px;
+    border: 3px solid var(--deep);
+    border-radius: 20px;
+    box-shadow: 4px 4px 0 var(--deep);
+    transform: rotate(1deg);
+  }
+  .btn-witz {
+    display: block;
+    margin: 16px auto 24px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    border: 3px solid var(--deep);
+    border-radius: 50px;
+    padding: 12px 26px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.4);
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: var(--cream);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  .btn-witz:active {
+    transform: scale(0.93);
+    box-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+  }
 
   /* Fireworks canvas */
   #fireworks {
@@ -182,6 +218,8 @@
 </head>
 <body>
 
+<div class="photo-label">🎂 Juhu, Lasse hat Geburtstag!</div>
+
 <canvas id="fireworks" aria-hidden="true"></canvas>
 
 <div id="plane-scene" aria-hidden="true">
@@ -227,12 +265,25 @@
 
 <div class="photo-wrap">
   <img src="lasse.jpg" alt="Lasse">
-  <div class="photo-label">🎂 Juhu, Lasse hat Geburtstag!</div>
 </div>
+
+<div id="witz-karte" class="joke-card">❄️ Was ist weiß und sitzt in einem Baum? <br>Ein Kühlschrank auf Klassenfahrt! 😄</div>
+<button onclick="naechsterWitz()" class="btn-witz">😂 Anderer Witz!</button>
 
 <audio id="musik" src="song_lasse.mp3" preload="none"></audio>
 
 <script>
+  const witze = [
+    '❄️ Was ist weiß und sitzt in einem Baum? <br>Ein Kühlschrank auf Klassenfahrt! 😄',
+    '🐻 Wie nennt man einen Bären ohne Zähne? <br>Ein Gummibärchen! 😄',
+    '🐄 Zwei Kühe stehen auf der Weide. Sagt die eine: "Muh!" <br>Sagt die andere: "Ich wollte gerade dasselbe sagen!" 😄'
+  ];
+  let witzIndex = 0;
+  function naechsterWitz() {
+    witzIndex = (witzIndex + 1) % witze.length;
+    document.getElementById('witz-karte').innerHTML = witze[witzIndex];
+  }
+
   let _fwRunning = false;
   function startFeuerwerk() {
     if (_fwRunning) return;
