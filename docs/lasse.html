@@ -147,6 +147,53 @@
     box-shadow: 1px 1px 0 rgba(0,0,0,0.4);
   }
 
+  /* Singer overlay */
+  .singer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(100px, 32vw, 150px);
+    height: clamp(100px, 32vw, 150px);
+    border-radius: 50%;
+    background: rgba(255, 248, 236, 0.92);
+    border: 4px solid var(--deep);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .singer.active { opacity: 1; }
+  .singer:not(.active) .wave span { animation-play-state: paused; }
+  .wave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 60%;
+    height: 55%;
+  }
+  .wave span {
+    display: inline-block;
+    width: 8px;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--purple);
+    animation: wave-bounce 1s ease-in-out infinite;
+  }
+  .wave span:nth-child(1) { background: var(--pink);   animation-delay: -0.8s; }
+  .wave span:nth-child(2) { background: var(--purple);  animation-delay: -0.5s; }
+  .wave span:nth-child(3) { background: var(--blue);    animation-delay: -0.9s; }
+  .wave span:nth-child(4) { background: var(--mint);    animation-delay: -0.3s; }
+  .wave span:nth-child(5) { background: var(--orange);  animation-delay: -0.65s; }
+  @keyframes wave-bounce {
+    0%, 100% { transform: scaleY(0.25); }
+    50%       { transform: scaleY(1); }
+  }
+
   /* Fireworks canvas */
   #fireworks {
     position: fixed;
@@ -265,6 +312,11 @@
 
 <div class="photo-wrap">
   <img src="lasse.jpg" alt="Lasse">
+  <div id="singer" class="singer" aria-hidden="true">
+    <div class="wave">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
 </div>
 
 <div id="witz-karte" class="joke-card">❄️ Was ist weiß und sitzt in einem Baum? <br>Ein Kühlschrank auf Klassenfahrt! 😄</div>
@@ -284,10 +336,11 @@
     document.getElementById('witz-karte').innerHTML = witze[witzIndex];
   }
 
-  let _fwRunning = false;
+  let _fwGen = 0;
+  let _fwCleanup = null;
   function startFeuerwerk() {
-    if (_fwRunning) return;
-    _fwRunning = true;
+    const myGen = ++_fwGen;
+    if (_fwCleanup) { _fwCleanup(); _fwCleanup = null; }
     const planeGroup = document.querySelector('.plane-group');
     if (planeGroup) {
       planeGroup.style.animation = 'none';
@@ -311,6 +364,11 @@
     }
     resize();
     window.addEventListener('resize', resize);
+    _fwCleanup = () => {
+      window.removeEventListener('resize', resize);
+      canvas.remove();
+      audioCtx.close();
+    };
     const COLORS = [
       [255,79,163],[168,85,247],[58,175,245],
       [77,223,175],[255,212,71],[255,140,66],
@@ -442,6 +500,7 @@
     }, 5800);
     let stopAt = performance.now() + 11000;
     function frame() {
+      if (myGen !== _fwGen) return;
       ctx.clearRect(0, 0, W, H);
       for (let i = rockets.length - 1; i >= 0; i--) {
         rockets[i].update(); rockets[i].draw();
@@ -455,13 +514,22 @@
         requestAnimationFrame(frame);
       } else {
         canvas.classList.add('fade');
-        _fwRunning = false;
-        const toRemove = canvas;
-        setTimeout(() => { toRemove.remove(); audioCtx.close(); }, 1600);
+        window.removeEventListener('resize', resize);
+        setTimeout(() => { canvas.remove(); audioCtx.close(); }, 1600);
+        if (myGen === _fwGen) _fwCleanup = null;
       }
     }
     requestAnimationFrame(frame);
   }
+
+  (function() {
+    const musikAudio = document.getElementById('musik');
+    const singerEl = document.getElementById('singer');
+    if (!musikAudio || !singerEl) return;
+    musikAudio.addEventListener('play', () => singerEl.classList.add('active'));
+    musikAudio.addEventListener('pause', () => singerEl.classList.remove('active'));
+    musikAudio.addEventListener('ended', () => singerEl.classList.remove('active'));
+  })();
 
   function toggleMusik() {
     const audio = document.getElementById('musik');
