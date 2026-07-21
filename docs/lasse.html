@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎉 Happy Birthday, Lasse! 🎂</title>
+<title>🎉 Juhu, Lasse hat Geburtstag! 🎂</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
@@ -91,10 +91,8 @@
     display: block;
   }
   .photo-label {
-    position: absolute;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
+    margin: 16px auto 0;
+    transform: rotate(-2deg);
     background: var(--yellow);
     color: var(--deep);
     font-family: 'Fredoka', sans-serif;
@@ -105,12 +103,12 @@
     border-radius: 50px;
     box-shadow: 4px 4px 0 var(--deep);
     white-space: nowrap;
-    z-index: 5;
+    width: fit-content;
     animation: label-bob 3s ease-in-out infinite;
   }
   @keyframes label-bob {
-    0%, 100% { transform: translateX(-50%) rotate(-2deg) translateY(0); }
-    50%       { transform: translateX(-50%) rotate(-1deg) translateY(-4px); }
+    0%, 100% { transform: rotate(-2deg) translateY(0); }
+    50%       { transform: rotate(-1deg) translateY(-4px); }
   }
 
   /* Fireworks canvas */
@@ -188,7 +186,7 @@
 
 <div id="plane-scene" aria-hidden="true">
   <div class="plane-group">
-    <div class="banner-flag">Happy Birthday, Lasse! 🎉</div>
+    <div class="banner-flag">Juhu, Lasse hat Geburtstag! 🎉</div>
     <div class="banner-rope"></div>
     <svg width="200" height="100" viewBox="0 0 265 132" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M 100,48 L 160,48 L 172,28 L 16,36 Z" fill="#a855f7" stroke="#2b1a4a" stroke-width="3" stroke-linejoin="round"/>
@@ -228,8 +226,8 @@
 </div>
 
 <div class="photo-wrap">
-  <div class="photo-label">🎂 Happy Birthday, Lasse!</div>
   <img src="lasse.jpg" alt="Lasse">
+  <div class="photo-label">🎂 Juhu, Lasse hat Geburtstag!</div>
 </div>
 
 <audio id="musik" src="song_lasse.mp3" preload="none"></audio>
