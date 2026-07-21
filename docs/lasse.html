@@ -97,6 +97,7 @@
     padding: 8px;
   }
   .photo-label {
+    position: relative;
     margin: 16px auto 0;
     transform: rotate(-2deg);
     background: var(--yellow);
@@ -104,13 +105,35 @@
     font-family: 'Fredoka', sans-serif;
     font-weight: 700;
     font-size: clamp(1.15rem, 5vw, 1.5rem);
-    padding: 10px 22px;
-    border: 3px solid var(--deep);
-    border-radius: 50px;
-    box-shadow: 4px 4px 0 var(--deep);
+    padding: 10px 26px;
+    border-radius: 4px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
     white-space: nowrap;
     width: fit-content;
+    cursor: default;
     animation: label-bob 3s ease-in-out infinite;
+  }
+  .photo-label::before,
+  .photo-label::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 26px;
+    height: 100%;
+    background: var(--orange);
+    z-index: -1;
+  }
+  .photo-label::before {
+    left: -18px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 45% 50%);
+  }
+  .photo-label::after {
+    right: -18px;
+    clip-path: polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%, 55% 50%);
+  }
+  .photo-label h1 {
+    font: inherit;
+    color: inherit;
   }
   @keyframes label-bob {
     0%, 100% { transform: rotate(-2deg) translateY(0); }
@@ -264,7 +287,9 @@
 </head>
 <body>
 
-<div class="photo-label">🎂 Juhu, Lasse hat Geburtstag!</div>
+<header class="photo-label">
+  <h1>🎂 Juhu, Lasse hat Geburtstag!</h1>
+</header>
 
 <canvas id="fireworks" aria-hidden="true"></canvas>
 
