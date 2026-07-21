@@ -416,8 +416,17 @@
       }
       update() {
         this.trail.push({x: this.x, y: this.y});
-        if (this.trail.length > 14) this.trail.shift();
+        if (this.trail.length > 26) this.trail.shift();
         this.y += this.vy; this.vy += 0.12;
+        for (let i = 0; i < 2; i++) {
+          const ang = Math.PI / 2 + (Math.random() - 0.5) * 1.0;
+          const spd = 0.8 + Math.random() * 1.8;
+          const emberColor = Math.random() < 0.5 ? [255, 210, 90] : this.color;
+          const ember = new Particle(this.x, this.y, Math.cos(ang) * spd, Math.sin(ang) * spd - this.vy * 0.15, emberColor, true);
+          ember.decay = 0.045 + Math.random() * 0.05;
+          ember.size = 1 + Math.random() * 1.4;
+          particles.push(ember);
+        }
         if (this.vy >= 0 || this.y <= this.targetY) { this.explode(); this.dead = true; }
       }
       explode() {
@@ -456,15 +465,28 @@
         }
       }
       draw() {
-        for (let i = 0; i < this.trail.length; i++) {
-          const t = this.trail[i], alpha = (i / this.trail.length) * 0.9;
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        const n = this.trail.length;
+        for (let i = 0; i < n; i++) {
+          const t = this.trail[i], p = i / n, alpha = p * 0.9, r = 2 + p * 6;
           ctx.beginPath();
           ctx.fillStyle = `rgba(${this.color[0]},${this.color[1]},${this.color[2]},${alpha})`;
-          ctx.arc(t.x, t.y, 2.4, 0, Math.PI * 2); ctx.fill();
+          ctx.arc(t.x, t.y, r, 0, Math.PI * 2); ctx.fill();
         }
         ctx.beginPath();
+        ctx.fillStyle = `rgba(${this.color[0]},${this.color[1]},${this.color[2]},0.35)`;
+        ctx.arc(this.x, this.y, 14, 0, Math.PI * 2); ctx.fill();
+        ctx.shadowBlur = 30;
+        ctx.shadowColor = `rgba(${this.color[0]},${this.color[1]},${this.color[2]},1)`;
+        ctx.beginPath();
         ctx.fillStyle = `rgba(${this.color[0]},${this.color[1]},${this.color[2]},1)`;
-        ctx.arc(this.x, this.y, 3.2, 0, Math.PI * 2); ctx.fill();
+        ctx.arc(this.x, this.y, 7.5, 0, Math.PI * 2); ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255,250,225,1)';
+        ctx.arc(this.x, this.y, 3.6, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
       }
     }
     class Particle {
