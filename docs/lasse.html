@@ -89,8 +89,11 @@
     width: 100%;
     height: auto;
     display: block;
-    background: #fff;
-    border: 6px solid #fff;
+    border: 8px solid transparent;
+    border-radius: 24px;
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(135deg, var(--pink), var(--purple), var(--blue), var(--mint), var(--yellow), var(--orange)) border-box;
     padding: 8px;
   }
   .photo-label {
